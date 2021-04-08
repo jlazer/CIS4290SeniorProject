@@ -10,6 +10,7 @@
                     <div class="col-lg-12">
                         <div class="about-us-content_6 text-center">
                             <h2>CIS 4290 Coffee Store</h2>
+                            <%-- Test comment --%>
                             <p>An online store project with the minimalist and simple state of mind taken in the production and distribution of our items. When having a cup of hot coffee or a glass of iced tea, 
                                 we aim to provide a sense of meaning in not just the experience, but also in the simplicity.
                             </p>
