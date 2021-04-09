@@ -152,7 +152,9 @@
                                             </div>
                                         </div>
                                         <div class="grand-btn mt-30">
-                                            <a href="#" class="btn--black btn--full text-center btn--lg">Proceed to checkout</a>
+                                            <asp:HyperLink ID="hlCheckout" runat="server" CssClass="btn--black btn--full text-center btn--lg" NavigateUrl="~/Checkout.aspx">
+                                                Proceed to checkout
+                                            </asp:HyperLink>
                                         </div>
                                     </div>
                                 </div>
