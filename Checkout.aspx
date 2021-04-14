@@ -2,6 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:SqlDataSource ID="sqlDSCart1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionStringOnlineStore %>"> 
+    </asp:SqlDataSource>
         <!-- breadcrumb-area start -->
     <div class="breadcrumb-area">
         <div class="container">
@@ -14,7 +16,7 @@
                         <div class="col-lg-6  col-md-6 col-sm-6">
                             <!-- breadcrumb-list start -->
                             <ul class="breadcrumb-list text-center text-sm-right">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="/"">Home</a></li>
                                 <li class="breadcrumb-item active">Checkout</li>
                             </ul>
                             <!-- breadcrumb-list end -->
@@ -52,9 +54,11 @@
                 </div>
 
 
+                <form id="checkout-wrap" method="post">
                 <div class="checkout-wrap">
                     <div class="row">
                         <div class="col-lg-7">
+                            
                             <div class="billing-info-wrap mr-100">
                                 <h6 class="mb-20">Billing Details</h6>
                                 <div class="row">
@@ -140,18 +144,14 @@
                                             </div>
                                             <div class="your-order-middle">
                                                 <ul>
-                                                    <li>Product Name X 1 <span>£329 </span></li>
-                                                    <li>Product Name X 3 <span>£39 </span></li>
-                                                </ul>
-                                            </div>
-                                            <div class="your-order-info order-subtotal">
-                                                <ul>
-                                                    <li><strong>Subtotal</strong> <span>£369 </span></li>
+                                                    <ItemTemplate>
+                                                    <li><%# Trim(Eval("ProductName")) %> X <%# Eval("Quantity")%> <span>$<%# Eval("Price") %></span></li>
+                                                    </ItemTemplate>
                                                 </ul>
                                             </div>
                                             <div class="your-order-info order-total">
                                                 <ul>
-                                                    <li><strong>Total</strong> <span>£369.00 </span></li>
+                                                    <li><strong>Total</strong> <span>$<asp:Label ID="lblTotal" runat="server"></asp:Label></span></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -166,6 +166,7 @@
                         </div>
                     </div>
                 </div>
+            </form>
             </div>
         </div>
         <!-- checkout end -->
