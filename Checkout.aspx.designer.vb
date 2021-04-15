@@ -23,6 +23,87 @@ Partial Public Class Checkout
     Protected WithEvents sqlDSCart1 As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
+    '''tbFName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbFName As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''tbLName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbLName As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''tbCName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbCName As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''ddPickup control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddPickup As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''tbPhone control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbPhone As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''tbEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbEmail As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''tbCardNo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbCardNo As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''tbDate control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbDate As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lvCart control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lvCart As Global.System.Web.UI.WebControls.ListView
+
+    '''<summary>
     '''lblTotal control.
     '''</summary>
     '''<remarks>
@@ -30,4 +111,22 @@ Partial Public Class Checkout
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblTotal As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''btnSubmit control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnSubmit As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''lblReturnArray control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblReturnArray As Global.System.Web.UI.WebControls.Label
 End Class

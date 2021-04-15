@@ -54,7 +54,7 @@
                 </div>
 
 
-                <form id="checkout-wrap" method="post">
+                <form id="checkoutwrap" method="post">
                 <div class="checkout-wrap">
                     <div class="row">
                         <div class="col-lg-7">
@@ -65,70 +65,63 @@
                                     <div class="col-lg-6 col-md-6">
                                         <div class="billing-info mb-25">
                                             <label>First name <span class="required" title="required">*</span></label>
-                                            <input type="text">
+                                            <asp:TextBox ID="tbFName" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="billing-info mb-25">
                                             <label>Last name <span class="required" title="required">*</span></label>
-                                            <input type="text">
+                                            <asp:TextBox ID="tbLName" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="billing-info mb-25">
-                                            <label>Company name (optional) <span class="required" title="required">*</span></label>
-                                            <input type="text">
+                                            <label>Company name (optional) </label>
+                                            <asp:TextBox ID="tbCName" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="billing-select mb-25">
-                                            <label>Country <span class="required" title="required">*</span></label>
-                                            <select class="select-active">
-                                                <option>Azerbaijan</option>
-                                                <option>Bahamas</option>
-                                                <option>Bahrain</option>
-                                                <option>Bangladesh</option>
-                                                <option>Barbados</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="billing-info mb-25">
-                                            <label>Street address <span class="required" title="required">*</span></label>
-                                            <input class="billing-address" placeholder="House number and street name" type="text">
-                                            <input placeholder="Apartment, suite, unit etc. (optional)" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="billing-info mb-25">
-                                            <label>Town / City <span class="required" title="required">*</span></label>
-                                            <input type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="billing-info mb-25">
-                                            <label>ZIP <span class="required" title="required">*</span></label>
-                                            <input type="text">
+                                            <label>Pick Up Location: <span class="required" title="required">*</span></label>
+                                            <asp:DropDownList CssClass="select-active" ID="ddPickup" runat="server">
+                                                <asp:ListItem Selected="True" Value="Diamond Bar">Diamond Bar</asp:ListItem>
+                                                <asp:ListItem Value="Eastvale">Eastvale</asp:ListItem>
+                                                <asp:ListItem Value="Glendora">Glendora</asp:ListItem>
+                                                <asp:ListItem Value="Rowland Heights">Rowland Heights</asp:ListItem>
+                                                <asp:ListItem Value="West Covina">West Covina</asp:ListItem>
+                                            </asp:DropDownList>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12">
                                         <div class="billing-info mb-25">
                                             <label>Phone <span class="required" title="required">*</span></label>
-                                            <input type="text">
+                                            <asp:TextBox ID="tbPhone" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12">
                                         <div class="billing-info mb-25">
                                             <label>Email Address <span class="required" title="required">*</span></label>
-                                            <input type="text">
+                                            <asp:TextBox ID="tbEmail" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="additional-info-wrap">
-                                    <h6 class="mb-10">Additional information</h6>
-                                    <label>Order notes (optional)</label>
+                                <div class="col-lg-6 col-md-6">
+                                        <div class="billing-info mb-25">
+                                            <label>Credit/Debit Card Number: <span class="required" title="required">*</span></label>
+                                            <asp:TextBox ID="tbCardNo" runat="server"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="billing-info mb-25">
+                                            <label>Expiration Date (mm/yy): <span class="required" title="required">*</span></label>
+                                            <asp:TextBox ID="tbDate" runat="server"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="additional-info-wrap">
+                                        <h6 class="mb-10">Additional information</h6>
+                                        <label>Order notes (optional)</label>
                                     <textarea placeholder="Notes about your order, e.g. special notes for delivery. " name="message"></textarea>
-                                </div>
+                                    </div>
                             </div>
                         </div>
                         <div class="col-lg-5">
@@ -144,9 +137,14 @@
                                             </div>
                                             <div class="your-order-middle">
                                                 <ul>
+                                                    <asp:ListView ID="lvCart" runat="server" DataSourceID="sqlDSCart1"
+                                                    OnItemCommand="lvCart_OnItemCommand" CellPadding="3" DataKeyField="CartNo"
+                                                    CellSpacing="0" RepeatColumns="1" DataKeyNames="ID">
+
                                                     <ItemTemplate>
                                                     <li><%# Trim(Eval("ProductName")) %> X <%# Eval("Quantity")%> <span>$<%# Eval("Price") %></span></li>
                                                     </ItemTemplate>
+                                                    </asp:ListView>
                                                 </ul>
                                             </div>
                                             <div class="your-order-info order-total">
@@ -160,12 +158,13 @@
 
                                 </div>
                                 <div class="place-order mt-30">
-                                    <a href="#" class="btn--full btn--black btn--lg text-center">Place Order</a>
+                                    <asp:Button ID="btnSubmit" runat="server" Text="Place Order" CssClass="btn--full btn--black btn--lg text-center" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                    <asp:Label ID="lblReturnArray" runat="server" Text=""></asp:Label>
             </form>
             </div>
         </div>

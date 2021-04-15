@@ -417,7 +417,7 @@
                                 <li class="has-children">
                                     <a href="#"><span>Other Pages</span></a>
                                     <ul class="sub-menu">
-                                        <li><a href="cart.html"><span>Cart</span></a></li>
+                                        <li><a href="ViewCart.aspx?"><span>Cart</span></a></li>
                                         <li><a href="checkout.html"><span>Checkout</span></a></li>
                                         <li><a href="my-account.html"><span>My Account</span></a></li>
                                     </ul>
