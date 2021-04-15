@@ -12,8 +12,8 @@ Public Class Payment
         Dim post_url As String = "https://test.authorize.net/gateway/transact.dll"
         ' name/value pairs
         Dim post_values As New Dictionary(Of String, String)
-        post_values.Add("x_login", "2JZ4xm8hQXw") ' your login ID
-        post_values.Add("x_tran_key", "5V4WyZ9a8p826w9T") ' your transaction key
+        post_values.Add("x_login", "9bB6pfr68F62UE9W") ' your login ID 2JZ4xm8hQXw
+        post_values.Add("x_tran_key", "9bB6pfr68F62UE9W") ' your transaction key 5V4WyZ9a8p826w9T
         post_values.Add("x_delim_data", "TRUE")
         post_values.Add("x_delim_char", ",")
         post_values.Add("x_relay_response", "FALSE")
