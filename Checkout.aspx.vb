@@ -55,9 +55,9 @@ Public Class Checkout
         post_values.Add("x_description", "Sample Transaction")
         post_values.Add("x_first_name", Trim(tbFName.Text))
         post_values.Add("x_last_name", Trim(tbLName.Text))
-        post_values.Add("x_address", "1234 Street")
-        post_values.Add("x_state", "WA")
-        post_values.Add("x_zip", "98004")
+        post_values.Add("x_address", Trim(tbaddress.Text))
+        post_values.Add("x_state", Trim(tbstate.Text))
+        post_values.Add("x_zip", Trim(tbzip.Text))
 
         ' converts them to the proper format "x_login=username&x_tran_key=a1B2c3D4"
         Dim post_string As String = ""
