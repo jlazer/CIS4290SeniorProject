@@ -58,6 +58,8 @@ Public Class Checkout
         post_values.Add("x_address", Trim(tbaddress.Text))
         post_values.Add("x_state", Trim(tbstate.Text))
         post_values.Add("x_zip", Trim(tbzip.Text))
+        post_values.Add("x_phone", Trim(tbPhone.Text))
+        post_values.Add("x_email", Trim(tbEmail.Text))
 
         ' converts them to the proper format "x_login=username&x_tran_key=a1B2c3D4"
         Dim post_string As String = ""
