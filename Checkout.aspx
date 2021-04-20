@@ -135,7 +135,7 @@
                                     <div class="additional-info-wrap">
                                         <h6 class="mb-10">Additional information</h6>
                                         <label>Order notes (optional)</label>
-                                    <textarea placeholder="Notes about your order, e.g. special notes for delivery. " name="message"></textarea>
+                                    <textarea ID="tborderDeets" placeholder="Notes about your order, e.g. special notes for delivery. " name="message" runat="server"></textarea>
                                     </div>
                             </div>
                         </div>

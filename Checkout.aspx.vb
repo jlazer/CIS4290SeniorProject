@@ -52,7 +52,7 @@ Public Class Checkout
         post_values.Add("x_card_num", Trim(tbCardNo.Text))
         post_values.Add("x_exp_date", Trim(tbDate.Text))
         post_values.Add("x_amount", lblTotal.Text)
-        post_values.Add("x_description", "Sample Transaction")
+        post_values.Add("x_description", Trim(tborderDeets.InnerText))
         post_values.Add("x_first_name", Trim(tbFName.Text))
         post_values.Add("x_last_name", Trim(tbLName.Text))
         post_values.Add("x_address", Trim(tbaddress.Text))
