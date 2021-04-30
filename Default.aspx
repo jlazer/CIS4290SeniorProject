@@ -3,6 +3,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SQLDatabaseConnection %>" SelectCommand="SELECT * FROM [Product]"></asp:SqlDataSource>
             <!-- About Us Area Start -->
         <div class="about-us-area section-space--ptb_120">
             <div class="container">
