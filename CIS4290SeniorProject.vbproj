@@ -92,6 +92,7 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ApiClient.aspx" />
     <Content Include="App_Data\OnlineStore.mdf" />
     <Content Include="App_Data\OnlineStore_log.ldf">
       <DependentUpon>OnlineStore.mdf</DependentUpon>
@@ -109,6 +110,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiClient.aspx.designer.vb">
+      <DependentUpon>ApiClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ApiClient.aspx.vb">
+      <DependentUpon>ApiClient.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Category.aspx.designer.vb">
       <DependentUpon>Category.aspx</DependentUpon>
     </Compile>

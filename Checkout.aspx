@@ -44,17 +44,14 @@
                             <p class="cart-page-title">Have a coupon? <a class="checkout-click" href="#">Click here to enter your code</a></p>
                             <div class="checkout-coupon-info">
                                 <p>If you have a coupon code, please apply it below.</p>
-                                <form action="#">
-                                    <input type="text" placeholder="Coupon code">
-                                    <input type="submit" value="Apply Coupon">
-                                </form>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
 
 
-                <form id="checkoutwrap" method="post">
+                <form id="checkout-wrap" method="post">
                 <div class="checkout-wrap">
                     <div class="row">
                         <div class="col-lg-7">
@@ -80,7 +77,7 @@
                                             <asp:TextBox ID="tbCName" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12">
+                                    <!--<div class="col-lg-12">
                                         <div class="billing-select mb-25">
                                             <label>Pick Up Location: <span class="required" title="required">*</span></label>
                                             <asp:DropDownList CssClass="select-active" ID="ddPickup" runat="server">
@@ -90,6 +87,24 @@
                                                 <asp:ListItem Value="Rowland Heights">Rowland Heights</asp:ListItem>
                                                 <asp:ListItem Value="West Covina">West Covina</asp:ListItem>
                                             </asp:DropDownList>
+                                        </div>
+                                    </div>-->
+                                    <div class="col-lg-12">
+                                        <div class="billing-info mb-25">
+                                            <label>Address: <span class="required" title="required">*</span></label>
+                                            <asp:TextBox ID="tbaddress" runat="server"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="billing-info mb-25">
+                                            <label>State: <span class="required" title="required">*</span></label>
+                                            <asp:TextBox ID="tbstate" runat="server"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="billing-info mb-25">
+                                            <label>Zip Code: <span class="required" title="required">*</span></label>
+                                            <asp:TextBox ID="tbzip" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12">
@@ -120,7 +135,7 @@
                                     <div class="additional-info-wrap">
                                         <h6 class="mb-10">Additional information</h6>
                                         <label>Order notes (optional)</label>
-                                    <textarea placeholder="Notes about your order, e.g. special notes for delivery. " name="message"></textarea>
+                                    <textarea ID="tborderDeets" placeholder="Notes about your order, e.g. special notes for delivery. " name="message" runat="server"></textarea>
                                     </div>
                             </div>
                         </div>

@@ -59,6 +59,33 @@ Partial Public Class Checkout
     Protected WithEvents ddPickup As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''tbaddress control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbaddress As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''tbstate control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbstate As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''tbzip control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbzip As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''tbPhone control.
     '''</summary>
     '''<remarks>
@@ -93,6 +120,15 @@ Partial Public Class Checkout
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents tbDate As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''tborderDeets control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tborderDeets As Global.System.Web.UI.HtmlControls.HtmlTextArea
 
     '''<summary>
     '''lvCart control.

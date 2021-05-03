@@ -401,6 +401,9 @@
                             <a href="#">Home</a>
                         </li>
                         <li class="has-children">
+                            <a href="ApiClient.aspx?"><span>Admin Panel Access</span></a>
+                        </li>
+                        <li class="has-children">
                             <a href="#">Shop</a>
                             <ul class="sub-menu">
                                 <li class="has-children">
@@ -548,7 +551,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-9 ml-auto mr-auto">
-                                <form action="#">
+                                <!--<form action="#">
                                     <div class="product-cats section-space--mb_60 text-center">
                                         <label> <input type="radio" name="product_cat" value="" checked="checked"> <span class="line-hover">All</span> </label>
                                         <label> <input type="radio" name="product_cat" value="decoration"> <span class="line-hover">Decoration</span> </label>
@@ -559,7 +562,7 @@
                                         <input type="text" placeholder="Search">
                                         <button class="submit-button"><i class="icon-magnifier"></i></button>
                                     </div>
-                                </form>
+                                </form>-->
                             </div>
                         </div>
                     </div>
