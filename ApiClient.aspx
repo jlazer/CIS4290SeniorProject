@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Layout.Master" CodeBehind="ApiClient.aspx.vb" Inherits="CIS4290SeniorProjectOnlineStore.ApiClient" %>
+﻿<%@ Page Async="true" Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Layout.Master" CodeBehind="ApiClient.aspx.vb" Inherits="CIS4290SeniorProjectOnlineStore.ApiClient" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -91,10 +91,10 @@
                 <asp:BoundField DataField="ProductID" HeaderText="ProductID" SortExpression="ProductID"/>
                 <asp:BoundField DataField="ProductNo" HeaderText="Product No" SortExpression="ProductNo"/>
                 <asp:BoundField DataField="ProductName" HeaderText="Product Name" SortExpression="ProductName"/>
-                <asp:BoundField DataField="ProductDescription" HeaderText="Product Description" SortExpression="ProductDescription"/>
-                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price"/>
+                <asp:BoundField DataField="ProductDesc" HeaderText="Product Description" SortExpression="ProductDescription"/>
+                <asp:BoundField DataField="UnitPrice" HeaderText="Price" SortExpression="Price"/>
                 <asp:BoundField DataField="SubCategoryID" HeaderText="Sub Category ID" SortExpression="SubCategoryID"/>
-                <asp:BoundField DataField="Featured" HeaderText="Featured" SortExpression="Featured"/>
+                <asp:BoundField DataField="FeaturedProduct" HeaderText="Featured" SortExpression="Featured"/>
                 <asp:BoundField DataField="MainCategoryID" HeaderText="Main Category ID" SortExpression="MainCategoryID"/>
             </Columns>
             <AlternatingRowStyle CssClass="myAltRowClass" />
