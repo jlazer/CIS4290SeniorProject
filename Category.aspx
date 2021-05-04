@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Layout.Master" CodeBehind="Category.aspx.vb" Inherits="CIS4290SeniorProjectOnlineStore.Category" %>
+﻿<%@ Page Async="true" Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Layout.Master" CodeBehind="Category.aspx.vb" Inherits="CIS4290SeniorProjectOnlineStore.Category" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -38,7 +38,7 @@
                                 </h6>
                                 <ul class="widget-nav-list">
                                    <asp:SqlDataSource ID="SqlDSSubCategory" ConnectionString="<%$ ConnectionStrings:ConnectionStringOnlineStore %>" SelectCommand="" runat="server"></asp:SqlDataSource>
-                                   <asp:Repeater ID="rpSubCategory" runat="server" DataSourceID="SqlDSSubCategory">
+                                   <asp:Repeater ID="rpSubCategory" runat="server">
                                         <ItemTemplate>
                                             <li><a href="Category.aspx?SubCategoryId=<%# Eval("ID")%>&SubCategoryName=<%# Trim(Eval("CategoryName"))%>&MainCategoryID=<% = Request.QueryString("MainCategoryID")%>&&MainCategoryName=<% = Request.QueryString("MainCategoryName")%>"><%# Trim(Eval("CategoryName"))%></a></li>
                                         </ItemTemplate>
@@ -84,7 +84,7 @@
                             <div class="tab-pane fade show active" id="tab_columns_01">
                                 <div class="row">
                                    <asp:SqlDataSource ID="SqlDSProductList" ConnectionString="<%$ ConnectionStrings:ConnectionStringOnlineStore %>" SelectCommand="" runat="server"></asp:SqlDataSource>
-                                   <asp:Repeater ID="rpProductList" runat="server" DataSourceID="SqlDSProductList">
+                                   <asp:Repeater ID="rpProductList" runat="server">
                                         <ItemTemplate>
                                         <div class="col-lg-4 col-md-4 col-sm-6">
                                             <!-- Single Product Item Start -->

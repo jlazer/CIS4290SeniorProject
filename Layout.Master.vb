@@ -1,7 +1,13 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
+Imports System.Drawing
+Imports System.Net.Http
+Imports System.Net.Http.Headers
+Imports Newtonsoft.Json
 Public Class Layout
     Inherits System.Web.UI.MasterPage
+
+    Dim httpClient As New HttpClient
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Session("Customer") <> "" Then
@@ -23,9 +29,9 @@ Public Class Layout
                 ' Dim strSQL As String = "Select * from Product Where ProductID = '" & Trim(tbSearch.Text) & "'"
                 ' assign a dynamic value for strURL
                 strURL = "Category.aspx?SearchString=" & Trim(tbSearch.Text)
-                    Response.Redirect(strURL)
-                Else
-                    strURL = "Category.aspx?SearchString=" & Trim(tbSearch.Text)
+                Response.Redirect(strURL)
+            Else
+                strURL = "Category.aspx?SearchString=" & Trim(tbSearch.Text)
                 Response.Redirect(strURL)
             End If
         End If

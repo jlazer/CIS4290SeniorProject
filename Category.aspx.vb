@@ -1,9 +1,16 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
+Imports System.Drawing
+Imports System.Net.Http
+Imports System.Net.Http.Headers
+Imports Newtonsoft.Json
+
 Public Class Category
     Inherits System.Web.UI.Page
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Dim httpClient As New HttpClient
+
+    Protected Async Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Request.QueryString("SearchString") <> "" Then
             ' all the database objects declared and instantiated 
             Dim strSQL As String = "Select * from Product Where ProductName LIKE '%" & Request.QueryString("SearchString") & "%'"
@@ -16,13 +23,30 @@ Public Class Category
                 Repeater2.Visible = True
             End If
             SqlDSSubCategory.SelectCommand = "Select * From Category Where parent = " & CInt(Request.QueryString("MainCategoryID"))
+            Dim uri As String = "https://localhost:44368/api/category/Parent?Parent=" & CInt(Request.QueryString("MainCategoryID"))
+            Dim task = Await httpClient.GetAsync(uri)
+            Dim jsonString = Await task.Content.ReadAsStringAsync()
+            If task.IsSuccessStatusCode Then
+                Dim table As DataTable = JsonConvert.DeserializeObject(Of DataTable)(jsonString)
+                rpSubCategory.DataSource = table
+                rpSubCategory.DataBind()
+            End If
+
             lblMainCategoryName.Text = Request.QueryString("MainCategoryName")
             ' assign selectcommand to SqlDSProductList for the featured products of the Main Category
             SqlDSProductList.SelectCommand = "Select * From Product Where productfeature = 1 and maincategoryid = " & CInt(Request.QueryString("MainCategoryID"))
         End If
         If Request.QueryString("SubCategoryID") <> "" Then
-            SqlDSProductList.SelectCommand = "Select * From Product Where subcategoryid = " & CInt(Request.QueryString("SubCategoryID"))
             lblProductList.Text = Request.QueryString("SubCategoryName")
+
+            Dim uri As String = "https://localhost:44368/api/product/SubCategoryID?SubCategory=" & CInt(Request.QueryString("SubCategoryID"))
+            Dim task = Await httpClient.GetAsync(uri)
+            Dim jsonString = Await task.Content.ReadAsStringAsync()
+            If task.IsSuccessStatusCode Then
+                Dim table As DataTable = JsonConvert.DeserializeObject(Of DataTable)(jsonString)
+                rpProductList.DataSource = table
+                rpProductList.DataBind()
+            End If
         End If
     End Sub
 
