@@ -95,7 +95,16 @@ Public Class ApiClient
         sqlDr = cmdSQL.ExecuteReader()
         conn.Close()
     End Sub
-
+    Function getToken() As String
+        Dim jwtToken As String
+        If (Request.Cookies("JwtCookie") IsNot Nothing) Then
+            If (Request.Cookies("JwtCookie")("JWT") IsNot Nothing) Then
+                jwtToken = Request.Cookies("JwtCookie")("JWT")
+                Return jwtToken
+            End If
+        End If
+        Return Nothing
+    End Function
 
 
 End Class
