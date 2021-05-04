@@ -293,6 +293,33 @@ Partial Public Class ApiClient
     Protected WithEvents btnCreateReview As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''Text1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Text1 As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''Button2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Button2 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''GridView2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridView2 As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
     '''tbUpdateReviewID control.
     '''</summary>
     '''<remarks>
@@ -346,115 +373,7 @@ Partial Public Class ApiClient
     '''</remarks>
     Protected WithEvents btnDeleteReviewID As Global.System.Web.UI.WebControls.Button
 
-    '''<summary>
-    '''btnAllCarts control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnAllCarts As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''gvAllCarts control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents gvAllCarts As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''tbDeleteCartLineID control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents tbDeleteCartLineID As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
-    '''btnDeleteCartLineID control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnDeleteCartLineID As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''tbGetCartID control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents tbGetCartID As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
-    '''btnCartByID control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnCartByID As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''gvCartByID control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents gvCartByID As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''btnCurrentCart control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnCurrentCart As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''gvCurrentCart control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents gvCurrentCart As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''tbUpdateQtyCartLineID control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents tbUpdateQtyCartLineID As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
-    '''tbUpdateQtyAmt control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents tbUpdateQtyAmt As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
-    '''btnUpdateCartQty control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnUpdateCartQty As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
+    
     '''btnImportAllProducts control.
     '''</summary>
     '''<remarks>
