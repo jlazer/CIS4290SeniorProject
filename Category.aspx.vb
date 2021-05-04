@@ -22,7 +22,6 @@ Public Class Category
                 Repeater1.Visible = False
                 Repeater2.Visible = True
             End If
-            SqlDSSubCategory.SelectCommand = "Select * From Category Where parent = " & CInt(Request.QueryString("MainCategoryID"))
             Dim uri As String = "https://localhost:44368/api/category/Parent?Parent=" & CInt(Request.QueryString("MainCategoryID"))
             Dim task = Await httpClient.GetAsync(uri)
             Dim jsonString = Await task.Content.ReadAsStringAsync()
@@ -46,6 +45,10 @@ Public Class Category
                 Dim table As DataTable = JsonConvert.DeserializeObject(Of DataTable)(jsonString)
                 rpProductList.DataSource = table
                 rpProductList.DataBind()
+                Repeater1.DataSource = table
+                Repeater1.DataBind()
+                Repeater2.DataSource = table
+                Repeater2.DataBind()
             End If
         End If
     End Sub

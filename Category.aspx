@@ -115,7 +115,7 @@
                             <div class="tab-pane fade" id="tab_columns_02">
                                 <div class="row">
                                    <asp:SqlDataSource ID="SqlDataSource1" ConnectionString="<%$ ConnectionStrings:ConnectionStringOnlineStore %>" SelectCommand="" runat="server"></asp:SqlDataSource>
-                                   <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDSProductList">
+                                   <asp:Repeater ID="Repeater1" runat="server">
                                         <ItemTemplate>
                                         <div class="col-lg-3 col-md-4 col-sm-6">
                                             <!-- Single Product Item Start -->
@@ -139,7 +139,7 @@
                                         </div>
                                         </ItemTemplate>
                                    </asp:Repeater>
-                                        <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SqlDSProductList" Visible="False">
+                                        <asp:Repeater ID="Repeater2" runat="server" Visible="False">
                                         <ItemTemplate>
                                         <div class="col-lg-3 col-md-4 col-sm-6">
                                             <!-- Single Product Item Start -->
