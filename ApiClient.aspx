@@ -281,6 +281,25 @@
                 <br />
                 <br />
 
+             <div class="alignCenter">
+            <!------------------Get Review by ID----------------------------------------------------->
+            <label>Get Review ID:</label>
+            <input type="text" id="Text1" runat="server" />
+            <asp:Button ID="Button2" runat="server" Text="Get Review by ID" />
+        </div>
+        <asp:GridView ID="GridView2" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
+            <Columns>
+                <asp:BoundField DataField="ReviewID" HeaderText="ReviewID" SortExpression="ReviewID"/>
+                <asp:BoundField DataField="ProductID" HeaderText="ProductID" SortExpression="ProdcutID"/>
+                <asp:BoundField DataField="UserName" HeaderText="User Name" SortExpression="UserName"/>
+                <asp:BoundField DataField="Rating" HeaderText="Rating" SortExpression="Rating"/>
+                <asp:BoundField DataField="UserReview" HeaderText="UserReview" SortExpression="UserRview"/>
+            </Columns>
+
+            <AlternatingRowStyle CssClass="myAltRowClass" />
+        </asp:GridView>
+
+
                 <!------------------------------Update Review by ID-------------------------------->
                 <h2 class="alignCenter">Update review by ID</h2>
                 <br />
@@ -318,6 +337,20 @@
 
         <br />
         <br />
+
+          <!--Get All Reviews-->
+        <asp:Button ID="Button1" CssClass="alignCenter" runat="server" Text="Get All Reviews" />
+        <asp:GridView ID="GridView1" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
+            <Columns>
+                <asp:BoundField DataField="ReviewID" HeaderText="ReviewID" SortExpression="ReviewID"/>
+                <asp:BoundField DataField="ProductID" HeaderText="ProductID" SortExpression="ProdcutID"/>
+                <asp:BoundField DataField="UserName" HeaderText="User Name" SortExpression="UserName"/>
+                <asp:BoundField DataField="Rating" HeaderText="Rating" SortExpression="Rating"/>
+                <asp:BoundField DataField="UserReview" HeaderText="UserReview" SortExpression="UserRview"/>
+            </Columns>
+            <AlternatingRowStyle CssClass="myAltRowClass" />
+        </asp:GridView>
+
 
         <!----------------------------Imports all products and reviews---------------------------->
         <h2 class="alignCenter">Import all products or reviews to database</h2>
