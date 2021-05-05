@@ -10,12 +10,39 @@ Public Class Layout
     Dim httpClient As New HttpClient
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
         If Session("Customer") <> "" Then
             hlLogin.Visible = False
             hlLogout.Visible = True
+            linkBtnAdminPanel.Visible = True
+            linkBtnAdminPanel.Text = "Admin Panel"
             lblCustomer.Text = Session("Customer")
             lblCustomer.Visible = True
+        Else
+            hlLogin.Visible = True
+            hlLogout.Visible = False
+            lblCustomer.Visible = False
+
         End If
+
+        'If Session("Customer") <> "" Then
+        '    System.Diagnostics.Debug.WriteLine("Session: " + Session("Customer").ToString)
+        '    hlLogin.Visible = False
+        '    hlLogout.Visible = True
+        '    lblCustomer.Text = Session("Customer")
+        '    lblCustomer.Visible = True
+
+        '    If Session("Customer") = "admin@admin.com" Then
+        '        System.Diagnostics.Debug.WriteLine(Session("Customer"))
+        '        linkBtnAdminPanel.Text = "Admin Panel"
+        '        linkBtnAdminPanel.Visible = True
+        '        'hlLogin.Visible = False
+        '        'hlLogout.Visible = True
+        '        'lblCustomer.Text = Session("Customer")
+        '        'lblCustomer.Visible = True
+        '    End If
+
+        'End If
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click

@@ -396,12 +396,14 @@
                     <ul>
                         <li class="has-children">
                             <asp:Label ID="lblCustomer" runat="server" Text="" Visible="False" Style="font-weight:bold; color:brown;"></asp:Label>
+                            <asp:LinkButton ID="linkBtnAdminPanel" href="ApiClient.aspx?" runat="server" Text="" Visible="False" Style="font-weight:bold; color:red;" ></asp:LinkButton>
+
                         </li>
                         <li class="has-children">
                             <a href="default.aspx?">Home</a>
                         </li>
                         <li class="has-children">
-                            <a href="ApiClient.aspx?"><span>Admin Panel Access</span></a>
+                            <%--<a href="ApiClient.aspx?"><span>Admin Panel Access</span></a>--%>
                         </li>
                         <li class="has-children">
                             <a href="#">Shop</a>

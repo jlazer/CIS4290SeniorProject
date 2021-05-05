@@ -2,6 +2,57 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        .gvDesign
+        {
+          width: 100%;
+          background-color: #fff;
+          margin: 5px 0 10px 0;
+          border: solid 1px #525252;
+          border-collapse:collapse;
+        }
+        /*data elements*/
+        .gvDesign td {
+          padding: 2px;
+          border: solid 1px #c1c1c1;
+          color: #717171;
+        }
+
+        /*header elements*/
+        .gvDesign th {
+          padding: 4px 2px;
+          color: #fff;
+          background: #424242;
+          border-left: solid 1px #525252;
+          font-size: 0.9em;
+        }
+
+        /*this will be the color of even row*/
+        .gvDesign .myAltRowClass { background: #fcfcfc repeat-x top; }
+
+        .alignCenter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .column {
+            flex: 50%;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+        }
+
+        .label{
+            font-weight:bold;
+        }
+    </style>
         
     <!-- breadcrumb-area start -->
     <div class="breadcrumb-area">
@@ -26,11 +77,6 @@
         </div>
     </div>
     <!-- breadcrumb-area end -->
-
-
-
-
-
 
     <div class="site-wrapper-reveal">
 
@@ -115,6 +161,67 @@
                     <div class="col-12">
                     </div>
                     <div class="col-12">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product-details-tab section-space--pt_90">
+                            <ul role="tablist" class=" nav">
+                                <li class="active" role="presentation">
+                                    <a data-toggle="tab" role="tab" href="#description" class="active">Description</a>
+                                </li>
+                                
+                                <li role="presentation">
+                                    <a data-toggle="tab" role="tab" href="#reviews">Reviews</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        
+                            <!-- Start Single Content -->
+                            <div class="product_tab_content tab-pane" id="reviews" role="tabpanel">
+                                <br />
+                                <h2 class="alignCenter">Create a review</h2>
+                                <br />
+                                     <div>
+                                        <div class="column">
+                                            <!---------------------Add and Update Review Inputs-------------------------->
+                
+                                            <label for="tbUserName" class="label">User Name:</label>
+                                            <input type="text" id="tbUserName" runat="server" />
+
+                                            <label for="tbRating" class="label">Rating:</label>
+                                            <input type="text" id="tbRating" runat="server" />
+
+                                            <label for="tbUserReview" class="label">User Review:</label>
+                                            <input type="text" id="tbUserReview" runat="server" />
+
+                                            <br />
+                                            <br />
+                                            <div class="alignCenter">
+                                            <asp:Button ID="btnCreateReview" class="button" runat="server" Text="Add a Review"/>
+                                            </div>
+                                        </div>
+
+                                <br />
+                                <!-- Start RAting Area -->
+                                <asp:Button ID="btnProductReviews" class="button" runat="server" Text="Product Reviews" />
+                                <asp:GridView ID="gvProductReviews" runat="server">
+                                    <Columns>
+                                        <asp:BoundField DataField="ReviewID" HeaderText="ReviewID" SortExpression="ReviewID"/>
+                                        <asp:BoundField DataField="ProductID" HeaderText="ProductID" SortExpression="ProdcutID"/>
+                                        <asp:BoundField DataField="UserName" HeaderText="User Name" SortExpression="UserName"/>
+                                        <asp:BoundField DataField="Rating" HeaderText="Rating" SortExpression="Rating"/>
+                                        <asp:BoundField DataField="UserReview" HeaderText="UserReview" SortExpression="UserRview"/>
+                                    </Columns>
+                                <AlternatingRowStyle CssClass="myAltRowClass" />
+                                </asp:GridView>
+                                <br />
+                                
+                            </div>
+                            <!-- End Single Content -->
+                        </div>
                     </div>
                 </div>
                 <br />

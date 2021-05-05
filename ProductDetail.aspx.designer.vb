@@ -147,4 +147,58 @@ Partial Public Class ProductDetail
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblProductNo As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''tbUserName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbUserName As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''tbRating control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbRating As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''tbUserReview control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbUserReview As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''btnCreateReview control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCreateReview As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''btnProductReviews control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnProductReviews As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''gvProductReviews control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents gvProductReviews As Global.System.Web.UI.WebControls.GridView
 End Class

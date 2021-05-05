@@ -14,60 +14,6 @@ Option Explicit On
 Partial Public Class ApiClient
 
     '''<summary>
-    '''loginDiv control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents loginDiv As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''tbEmail control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents tbEmail As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
-    '''tbPassword control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents tbPassword As Global.System.Web.UI.HtmlControls.HtmlInputPassword
-
-    '''<summary>
-    '''btnApiLogin control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnApiLogin As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''lblLoginResult control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblLoginResult As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''btnApiLogout control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnApiLogout As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
     '''btnAllProducts control.
     '''</summary>
     '''<remarks>
@@ -102,6 +48,24 @@ Partial Public Class ApiClient
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gvAllReviews As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''btnAllCategory control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnAllCategory As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''gvAllCategory control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents gvAllCategory As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
     '''tbProductID control.
@@ -156,6 +120,33 @@ Partial Public Class ApiClient
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gvReviewID As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''tbCategoryID control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbCategoryID As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''btnCategoryID control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCategoryID As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''gvCategoryID control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents gvCategoryID As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
     '''tbProductNo control.
@@ -336,24 +327,6 @@ Partial Public Class ApiClient
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnCreateReview As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''Text1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Text1 As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
-    '''Button2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Button2 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''GridView2 control.

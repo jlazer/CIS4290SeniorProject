@@ -86,7 +86,7 @@
         <br />
 
         <!-------------------------------API Login Credentials------------------------------------>
-        <h2 class="alignCenter">Login for access:</h2>
+        <%--<h2 class="alignCenter">Login for access:</h2>
         <br />
       <div>
         <div id="loginDiv" runat="server">
@@ -105,7 +105,7 @@
 
         <a class="alignCenter" style="font-weight: bold" href="Register.aspx">Register for API Access</a>
             <asp:Label ID="lblLoginResult" runat="server" Font-Bold="true" Text="" Visible="false" CssClass="alignCenter"></asp:Label>
-            <asp:Button ID="btnApiLogout" runat="server" Text="Logout" Visible="false"/>
+            <asp:Button ID="btnApiLogout" runat="server" Text="Logout" Visible="false"/>--%>
         <!---------------------------------------------------------------------------------------->
 
         <br />
@@ -147,7 +147,20 @@
         </asp:GridView>
         </div>
         <!---------------------------------------------------------------------------------------->
-
+        <!-----------------------------Get All Categories----------------------------------->
+          <div class="alignCenter">
+        <asp:Button ID="btnAllCategory" class="button" runat="server" Text="All Categories" />
+        <asp:GridView ID="gvAllCategory" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
+            <Columns>
+                <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id"/>
+                <asp:BoundField DataField="CategoryID" HeaderText="CategoryID" SortExpression="CategoryID"/>
+                <asp:BoundField DataField="CategoryName" HeaderText="Category Name" SortExpression="CategoryName"/>
+                <asp:BoundField DataField="Parent" HeaderText="Parent" SortExpression="Parent"/>
+            </Columns>
+            <AlternatingRowStyle CssClass="myAltRowClass" />
+        </asp:GridView>
+        </div>
+        <!---------------------------------------------------------------------------------------->
         <br />
         <br />
 
@@ -195,6 +208,25 @@
             <AlternatingRowStyle CssClass="myAltRowClass" />
         </asp:GridView>
         <!---------------------------------------------------------------------------------------->
+        
+        <br />
+        <!---------------------------------Get Category by ID---------------------------------->
+        <div class="column, alignCenter">
+            <label class="label">Category ID:</label>&emsp;&emsp;
+            <input type="text" id="tbCategoryID" runat="server" />&emsp;
+            <asp:Button ID="btnCategoryID" runat="server" Text="Get Category" class="button"/>
+        </div>
+        <asp:GridView ID="gvCategoryID" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
+            <Columns>
+                <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id"/>
+                <asp:BoundField DataField="CategoryID" HeaderText="CategoryID" SortExpression="CategoryID"/>
+                <asp:BoundField DataField="CategoryName" HeaderText="Category Name" SortExpression="CategoryName"/>
+                <asp:BoundField DataField="Parent" HeaderText="Parent" SortExpression="Parent"/>
+            </Columns>
+
+            <AlternatingRowStyle CssClass="myAltRowClass" />
+        </asp:GridView>
+        <!---------------------------------------------------------------------------------------->
 
         <br />
         <br />
@@ -205,9 +237,7 @@
         <div>
             <div class="column">
 
-                <%--<label for="tbCreateProductId" class="label">ProductId:</label>
-                <input type="number" id="tbCreateProductId" runat="server" />--%>
-
+               
                 <label for="tbProductNo" class="label">ProductNo:</label>
                 <input type="text" id="tbProductNo" runat="server" />
 
@@ -303,12 +333,7 @@
                 <br />
                 <br />
 
-             <div class="alignCenter">
-            <!------------------Get Review by ID----------------------------------------------------->
-            <label>Get Review ID:</label>
-            <input type="text" id="Text1" runat="server" />
-            <asp:Button ID="Button2" runat="server" Text="Get Review by ID" />
-        </div>
+            
         <asp:GridView ID="GridView2" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
             <Columns>
                 <asp:BoundField DataField="ReviewID" HeaderText="ReviewID" SortExpression="ReviewID"/>
@@ -335,6 +360,34 @@
 
         <br />
         <br />
+        <div>
+        <!------------------------------------Create a Category------------------------------------->
+            <%--<h2 class="alignCenter">Create a Category</h2>
+        <br />
+        <div>
+            <div class="column">
+
+               
+                <label for="tbCreateCategoryId" class="label">CategoryID:</label>
+                <input type="text" id="tbCreateCategoryId" runat="server" />
+
+                <label for="tbCategoryName" class="label">CategoryName:</label>
+                <input type="text" id="tbCategoryName" runat="server" />
+
+                <label for="tbParent" class="label">Parent:</label>
+                <input type="text" id="tbParent" runat="server" />
+
+               
+                
+                <br />
+                <br />
+                <div class="alignCenter">
+                <asp:Button ID="btnCreateCategory" class="button" runat="server" Text="Create a Category"/>
+                </div>
+            </div>
+        </div>--%>
+        
+
 
         <!---------------------------------Delete Product or Review by ID---------------------------------->
         <h2 class="alignCenter">Delete a product or review by ID</h2>
@@ -360,18 +413,6 @@
         <br />
         <br />
 
-          <%--<!--Get All Reviews-->
-        <asp:Button ID="Button1" CssClass="alignCenter" runat="server" Text="Get All Reviews" />
-        <asp:GridView ID="GridView1" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
-            <Columns>
-                <asp:BoundField DataField="ReviewID" HeaderText="ReviewID" SortExpression="ReviewID"/>
-                <asp:BoundField DataField="ProductID" HeaderText="ProductID" SortExpression="ProdcutID"/>
-                <asp:BoundField DataField="UserName" HeaderText="User Name" SortExpression="UserName"/>
-                <asp:BoundField DataField="Rating" HeaderText="Rating" SortExpression="Rating"/>
-                <asp:BoundField DataField="UserReview" HeaderText="UserReview" SortExpression="UserRview"/>
-            </Columns>
-            <AlternatingRowStyle CssClass="myAltRowClass" />
-        </asp:GridView>--%>
 
 
         <!----------------------------Imports all products and reviews---------------------------->
