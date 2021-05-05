@@ -164,10 +164,10 @@
                 <asp:BoundField DataField="ProductID" HeaderText="ProductID" SortExpression="DateField" />
                 <asp:BoundField DataField="ProductNo" HeaderText="Product No" SortExpression="ProductNo" />
                 <asp:BoundField DataField="ProductName" HeaderText="Product Name" SortExpression="ProductName" />
-                <asp:BoundField DataField="ProductDescription" HeaderText="Product Description" SortExpression="ProductDescription" />
-                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+                <asp:BoundField DataField="ProductDesc" HeaderText="Product Description" SortExpression="ProductDescription" />
+                <asp:BoundField DataField="UnitPrice" HeaderText="Price" SortExpression="Price" />
                 <asp:BoundField DataField="SubCategoryID" HeaderText="Sub Category ID" SortExpression="SubCategoryID" />
-                <asp:BoundField DataField="Featured" HeaderText="Featured" SortExpression="Featured" />
+                <asp:BoundField DataField="FeaturedProduct" HeaderText="Featured" SortExpression="Featured" />
                 <asp:BoundField DataField="MainCategoryID" HeaderText="Main Category ID" SortExpression="MainCategoryID" />
             </Columns>
 
@@ -204,6 +204,10 @@
         <br />
         <div>
             <div class="column">
+
+                <label for="tbCreateProductId" class="label">ProductId:</label>
+                <input type="number" id="tbCreateProductId" runat="server" />
+
                 <label for="tbProductNo" class="label">ProductNo:</label>
                 <input type="text" id="tbProductNo" runat="server" />
 
@@ -214,16 +218,33 @@
                 <input type="text" id="tbProductDescription" runat="server" />
 
                 <label for="tbPrice" class="label">Price:</label>
-                <input type="text" id="tbPrice" runat="server" />
-
-                <label for="tbSubCategoryID" class="label">SubCategoryID:</label>
-                <input type="text" id="tbSubCategoryID" runat="server" />
-
-                <label for="tbFeatured" class="label">Featured:</label>
-                <input type="text" id="tbFeatured" runat="server" />
+                <input type="number" id="tbPrice" runat="server" />
 
                 <label for="tbMainCategoryID" class="label">MainCategoryID:</label>
-                <input type="text" id="tbMainCategoryID" runat="server" />
+                <input type="number" id="tbMainCategoryID" runat="server" />
+
+                <label for="tbSubCategoryID" class="label">SubCategoryID:</label>
+                <input type="number" id="tbSubCategoryID" runat="server" />
+
+                <label for="tbMainCategoryName" class="label">MainCategoryName:</label>
+                <input type="text" id="tbMainCategoryName" runat="server" />
+
+                <label for="tbSubCategoryName" class="label">SubCategoryName:</label>
+                <input type="text" id="tbSubCategoryName" runat="server" />
+
+                <label for="tbProductCaption" class="label">ProductCaption:</label>
+                <input type="text" id="tbProductCaption" runat="server" />
+
+                <label for="tbProductRating" class="label">ProductRating:</label>
+                <input type="number" id="tbProductRating" runat="server" />
+
+                <label for="tbFeatured" class="label">Featured:</label>
+                <input type="number" id="tbFeatured" runat="server" />
+
+                <label for="tbProductInfo" class="label">ProductInfo:</label>
+                <input type="text" id="tbProductInfo" runat="server" />
+
+                
 
                 <br />
                 <br />

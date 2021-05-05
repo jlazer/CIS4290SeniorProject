@@ -158,6 +158,15 @@ Partial Public Class ApiClient
     Protected WithEvents gvReviewID As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
+    '''tbCreateProductId control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbCreateProductId As Global.System.Web.UI.HtmlControls.HtmlInputGenericControl
+
+    '''<summary>
     '''tbProductNo control.
     '''</summary>
     '''<remarks>
@@ -191,25 +200,7 @@ Partial Public Class ApiClient
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tbPrice As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
-    '''tbSubCategoryID control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents tbSubCategoryID As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
-    '''tbFeatured control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents tbFeatured As Global.System.Web.UI.HtmlControls.HtmlInputText
+    Protected WithEvents tbPrice As Global.System.Web.UI.HtmlControls.HtmlInputGenericControl
 
     '''<summary>
     '''tbMainCategoryID control.
@@ -218,7 +209,70 @@ Partial Public Class ApiClient
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tbMainCategoryID As Global.System.Web.UI.HtmlControls.HtmlInputText
+    Protected WithEvents tbMainCategoryID As Global.System.Web.UI.HtmlControls.HtmlInputGenericControl
+
+    '''<summary>
+    '''tbSubCategoryID control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbSubCategoryID As Global.System.Web.UI.HtmlControls.HtmlInputGenericControl
+
+    '''<summary>
+    '''tbMainCategoryName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbMainCategoryName As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''tbSubCategoryName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbSubCategoryName As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''tbProductCaption control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbProductCaption As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''tbProductRating control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbProductRating As Global.System.Web.UI.HtmlControls.HtmlInputGenericControl
+
+    '''<summary>
+    '''tbFeatured control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbFeatured As Global.System.Web.UI.HtmlControls.HtmlInputGenericControl
+
+    '''<summary>
+    '''tbProductInfo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbProductInfo As Global.System.Web.UI.HtmlControls.HtmlInputText
 
     '''<summary>
     '''btnCreateProduct control.
@@ -373,7 +427,25 @@ Partial Public Class ApiClient
     '''</remarks>
     Protected WithEvents btnDeleteReviewID As Global.System.Web.UI.WebControls.Button
 
-    
+    '''<summary>
+    '''Button1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''GridView1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
     '''btnImportAllProducts control.
     '''</summary>
     '''<remarks>
