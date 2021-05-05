@@ -161,6 +161,7 @@
       <DependentUpon>ApiClient.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Content Include="App_Code\Category.vb" />
     <Compile Include="App_Code\Product.vb" />
     <Compile Include="App_Code\Review.vb" />
     <Compile Include="Category.aspx.designer.vb">
