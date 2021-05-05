@@ -39,7 +39,7 @@ Public Class ApiClient
         End If
 
     End Sub
-    'convert below method To Get product by id
+
     Public Async Sub btnProductID_ClickAsync(sender As Object, e As EventArgs) Handles btnProductID.Click
 
         Dim uri As String = "https://localhost:44368/api/product/" & tbProductID.Value
@@ -66,14 +66,12 @@ Public Class ApiClient
 
     End Sub
 
-    'convert below method to create product
     Private Async Sub btnCreateProduct_ClickAsync(sender As Object, e As EventArgs) Handles btnCreateProduct.Click
         'I think i need to create a product class. make a product object on page load and place the textbox values into that object then serialize it to json
         'Dim createdProduct As Product
         Dim createdProduct As New Product
 
-        createdProduct.ProductID = CInt(tbCreateProductId.Value.Trim)
-        createdProduct.ProductNo = tbCreateProductId.Value
+        createdProduct.ProductNo = tbProductNo.Value
         createdProduct.ProductName = tbProductName.Value
         createdProduct.ProductDesc = tbProductDescription.Value
         createdProduct.UnitPrice = Decimal.Parse(tbPrice.Value.Trim)
@@ -103,12 +101,23 @@ Public Class ApiClient
     End Sub
 
     Private Async Sub btnCreateReview_ClickAsync(sender As Object, e As EventArgs) Handles btnCreateReview.Click
-        Dim myJson As String = ("{'ProductID': '" & tbRProductId.Value & "', 'UserName': '" & tbUserName.Value & "', 'Rating': '" _
-            & tbRating.Value & "', 'UserReview': '" & tbUserReview.Value & "'}")
+        Dim createdReview As New Review
+
+        'createdReview.ReviewID = CInt(tbReviewID.Value.Trim)
+        createdReview.ProductID = CInt(tbRProductId.Value.Trim)
+        createdReview.UserName = tbUserName.Value
+        createdReview.Rating = CInt(tbRating.Value.Trim)
+        createdReview.UserReview = tbUserReview.Value
+
+        Dim json As String = JsonConvert.SerializeObject(createdReview, Formatting.Indented)
+
+
+        'Dim myJson As String = ("{'ProductID': '" & tbRProductId.Value & "', 'UserName': '" & tbUserName.Value & "', 'Rating': '" _
+        '& tbRating.Value & "', 'UserReview': '" & tbUserReview.Value & "'}")
 
         httpClient.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Bearer", getToken())
         Dim uri As String = "https://localhost:44368/api/review/"
-        Dim response = Await httpClient.PostAsync(uri, New StringContent(myJson, Encoding.UTF8, "application/json"))
+        Dim response = Await httpClient.PostAsync(uri, New StringContent(json, Encoding.UTF8, "application/json"))
         btnAllReviews_ClickAsync(btnAllReviews, EventArgs.Empty)
     End Sub
 
@@ -139,22 +148,22 @@ Public Class ApiClient
         btnProductID_ClickAsync(btnProductID, EventArgs.Empty)
     End Sub
 
-    Private Async Sub btnImportAllReviews_ClickAsync(sender As Object, e As EventArgs) Handles btnImportAllReviews.Click
-        Dim uri As String = "https://localhost:44368/api/review"
-        Dim task = Await httpClient.GetAsync(uri)
-        Dim jsonString = Await task.Content.ReadAsStringAsync()
+    'Private Async Sub btnImportAllReviews_ClickAsync(sender As Object, e As EventArgs) Handles btnImportAllReviews.Click
+    '    Dim uri As String = "https://localhost:44368/api/review"
+    '    Dim task = Await httpClient.GetAsync(uri)
+    '    Dim jsonString = Await task.Content.ReadAsStringAsync()
 
-        Dim sqlDr As SqlDataReader
-        Dim strSQLStatement As String
-        Dim cmdSQL As SqlCommand
-        Dim strConnectionString As String = System.Configuration.ConfigurationManager.ConnectionStrings("ConnectionStringOnlineStore").ConnectionString
-        Dim conn As New SqlConnection(strConnectionString)
-        conn.Open()
-        strSQLStatement = "DECLARE @json NVARCHAR(max) SET @json = N'" & jsonString & "'; INSERT INTO Review  SELECT * FROM OPENJSON(@json) WITH (productID int, userName varchar(30), rating int, userReview varchar(300))"
-        cmdSQL = New SqlCommand(strSQLStatement, conn)
-        sqlDr = cmdSQL.ExecuteReader()
-        conn.Close()
-    End Sub
+    '    Dim sqlDr As SqlDataReader
+    '    Dim strSQLStatement As String
+    '    Dim cmdSQL As SqlCommand
+    '    Dim strConnectionString As String = System.Configuration.ConfigurationManager.ConnectionStrings("ConnectionStringOnlineStore").ConnectionString
+    '    Dim conn As New SqlConnection(strConnectionString)
+    '    conn.Open()
+    '    strSQLStatement = "DECLARE @json NVARCHAR(max) SET @json = N'" & jsonString & "'; INSERT INTO Review  SELECT * FROM OPENJSON(@json) WITH (productID int, userName varchar(30), rating int, userReview varchar(300))"
+    '    cmdSQL = New SqlCommand(strSQLStatement, conn)
+    '    sqlDr = cmdSQL.ExecuteReader()
+    '    conn.Close()
+    'End Sub
     Function getToken() As String
         Dim jwtToken As String
         If (Request.Cookies("JwtCookie") IsNot Nothing) Then

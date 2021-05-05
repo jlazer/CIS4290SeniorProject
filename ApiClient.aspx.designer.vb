@@ -158,15 +158,6 @@ Partial Public Class ApiClient
     Protected WithEvents gvReviewID As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''tbCreateProductId control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents tbCreateProductId As Global.System.Web.UI.HtmlControls.HtmlInputGenericControl
-
-    '''<summary>
     '''tbProductNo control.
     '''</summary>
     '''<remarks>
@@ -426,58 +417,4 @@ Partial Public Class ApiClient
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnDeleteReviewID As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''Button1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''GridView1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''btnImportAllProducts control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnImportAllProducts As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''btnImportAllReviews control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnImportAllReviews As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''tbImportProductID control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents tbImportProductID As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
-    '''btnImportProductID control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnImportProductID As Global.System.Web.UI.WebControls.Button
 End Class

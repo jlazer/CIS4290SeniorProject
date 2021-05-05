@@ -398,7 +398,7 @@
                             <asp:Label ID="lblCustomer" runat="server" Text="" Visible="False" Style="font-weight:bold; color:brown;"></asp:Label>
                         </li>
                         <li class="has-children">
-                            <a href="#">Home</a>
+                            <a href="default.aspx?">Home</a>
                         </li>
                         <li class="has-children">
                             <a href="ApiClient.aspx?"><span>Admin Panel Access</span></a>

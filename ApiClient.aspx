@@ -205,8 +205,8 @@
         <div>
             <div class="column">
 
-                <label for="tbCreateProductId" class="label">ProductId:</label>
-                <input type="number" id="tbCreateProductId" runat="server" />
+                <%--<label for="tbCreateProductId" class="label">ProductId:</label>
+                <input type="number" id="tbCreateProductId" runat="server" />--%>
 
                 <label for="tbProductNo" class="label">ProductNo:</label>
                 <input type="text" id="tbProductNo" runat="server" />
@@ -279,6 +279,7 @@
          <div>
             <div class="column">
                 <!---------------------Add and Update Review Inputs-------------------------->
+                
                 <label for="tbRProductID" class="label">ProductID:</label>
                 <input type="text" id="tbRProductId" runat="server" />
 
@@ -359,7 +360,7 @@
         <br />
         <br />
 
-          <!--Get All Reviews-->
+          <%--<!--Get All Reviews-->
         <asp:Button ID="Button1" CssClass="alignCenter" runat="server" Text="Get All Reviews" />
         <asp:GridView ID="GridView1" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
             <Columns>
@@ -370,11 +371,11 @@
                 <asp:BoundField DataField="UserReview" HeaderText="UserReview" SortExpression="UserRview"/>
             </Columns>
             <AlternatingRowStyle CssClass="myAltRowClass" />
-        </asp:GridView>
+        </asp:GridView>--%>
 
 
         <!----------------------------Imports all products and reviews---------------------------->
-        <h2 class="alignCenter">Import all products or reviews to database</h2>
+        <%--<h2 class="alignCenter">Import all products or reviews to database</h2>
         <br />
         <!----------------------------------Import All Products----------------------------->
         <div class="alignCenter">
@@ -396,6 +397,7 @@
             <label class="label">Product ID:</label>&emsp;&emsp;
             <input type="text" id="tbImportProductID" runat="server" />&emsp;
             <asp:button runat="server" id="btnImportProductID" text="Import" class="button"/>
-        </div>
+        </div>--%>
+
     </div>
 </asp:Content>

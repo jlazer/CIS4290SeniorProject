@@ -162,6 +162,7 @@
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="App_Code\Product.vb" />
+    <Compile Include="App_Code\Review.vb" />
     <Compile Include="Category.aspx.designer.vb">
       <DependentUpon>Category.aspx</DependentUpon>
     </Compile>
