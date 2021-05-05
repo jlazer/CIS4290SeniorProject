@@ -1,40 +1,34 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
 Imports System.Drawing
+Imports System.Net.Http
+Imports System.Net.Http.Headers
+Imports Newtonsoft.Json
 
 Public Class ProductDetail
     Inherits System.Web.UI.Page
 
+    Dim httpClient As New HttpClient
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Protected Async Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Request.QueryString("ProductID") <> "" Then
-            Dim strConn As String = System.Configuration.ConfigurationManager.ConnectionStrings("ConnectionStringOnlineStore").ConnectionString
-            Dim connProduct As SqlConnection
-            Dim cmdProduct As SqlCommand
-            Dim drProduct As SqlDataReader
-            Dim strSQL As String = "Select * from Product Where ProductID = " & CInt(Request.QueryString("ProductID"))
-            connProduct = New SqlConnection(strConn)
-            cmdProduct = New SqlCommand(strSQL, connProduct)
-            connProduct.Open()
-            drProduct = cmdProduct.ExecuteReader(CommandBehavior.CloseConnection)
-            If drProduct.Read() Then
-                lblProductNo.Text = drProduct.Item("ProductNo")
-                lblProductName.Text = drProduct.Item("ProductName")
-                lblProductNameHeader.Text = drProduct.Item("ProductName")
-                lblProductDescription.Text = drProduct.Item("ProductDescription")
-                ' implement image control on productdetail.aspx
-                imgProduct1.ImageUrl = "images/category/" + Trim(drProduct.Item("ProductNo")) + ".jpg"
-                imgProduct2.ImageUrl = "images/product-detail/" + Trim(drProduct.Item("ProductNo")) + "1.jpg"
-                productHL1.NavigateUrl = "images/category/" + Trim(drProduct.Item("ProductNo")) + ".jpg"
-                productHL2.NavigateUrl = "images/product-detail/" + Trim(drProduct.Item("ProductNo")) + "1.jpg"
-                productSmall1.ImageUrl = "images/product-detail/" + Trim(drProduct.Item("ProductNo")) + "Small1.jpg"
-                productSmall2.ImageUrl = "images/product-detail/" + Trim(drProduct.Item("ProductNo")) + "Small2.jpg"
-                If Session("Customer") <> "" Then
-                    lblPrice.Text = drProduct.Item("UnitPrice") * 0.8
-                    lblPrice.ForeColor = Color.Blue
-                Else
-                    lblPrice.Text = drProduct.Item("UnitPrice")
-                End If
+
+            Dim uri As String = "https://localhost:44368/api/product/" & CInt(Request.QueryString("ProductID"))
+            Dim task = Await httpClient.GetAsync(uri)
+            Dim jsonString = Await task.Content.ReadAsStringAsync()
+            If task.IsSuccessStatusCode Then
+                Dim table As DataTable = JsonConvert.DeserializeObject(Of DataTable)(jsonString)
+                lblProductNo.Text = table.Rows(0)(1).ToString
+                lblProductName.Text = table.Rows(0)(2).ToString
+                lblProductNameHeader.Text = table.Rows(0)(2).ToString
+                lblProductDescription.Text = table.Rows(0)(3).ToString
+                imgProduct1.ImageUrl = "images/category/" + Trim(table.Rows(0)(1).ToString) + ".jpg"
+                imgProduct2.ImageUrl = "images/product-detail/" + Trim(table.Rows(0)(1).ToString) + "1.jpg"
+                productHL1.NavigateUrl = "images/category/" + Trim(table.Rows(0)(1).ToString) + ".jpg"
+                productHL2.NavigateUrl = "images/product-detail/" + Trim(table.Rows(0)(1).ToString) + "1.jpg"
+                productSmall1.ImageUrl = "images/product-detail/" + Trim(table.Rows(0)(1).ToString) + "Small1.jpg"
+                productSmall2.ImageUrl = "images/product-detail/" + Trim(table.Rows(0)(1).ToString) + "Small2.jpg"
+                lblPrice.Text = table.Rows(0)(4).ToString
             End If
         End If
     End Sub
