@@ -241,6 +241,7 @@
 
             <AlternatingRowStyle CssClass="myAltRowClass" />
         </asp:GridView>
+
         <!---------------------------------------------------------------------------------------->
         
         <br />
@@ -318,15 +319,16 @@
                 <input type="text" id="tbProductInfo" runat="server" />
 
                 
+                <br />
+                <br />
 
-                <br />
-                <br />
                 <div class="alignCenter">
                 <asp:Button ID="btnCreateProduct" Cssclass="btn--lg btn--black font-weight--reguler text-white" runat="server" Text="Create a Product"/>
                 </div>
-            </div>
-            </div>
-                <!---------------------------------------------------------------------------------------->
+                </div>
+                </div>
+
+            <!---------------------------------------------------------------------------------------->
 
                 <br />
                 <br />
@@ -346,9 +348,9 @@
                     <asp:Button ID="btnUpdateProduct" runat="server" Text="Update" Cssclass="btn--lg btn--black font-weight--reguler text-white"/>
                 </div>
             </div>
-            <!---------------------------------------------------------------------------------------->
+            
         </div> 
-        
+        <!---------------------------------------------------------------------------------------->
         <br />
         <br />
 
@@ -389,34 +391,7 @@
                 <br />
                 <br />
 
-            <div class="alignCenter">
-            <!------------------Get Review by ID----------------------------------------------------->
-            <div class="container">
-                 <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title text-center mb-20">
-                            <h2 class="section-title--one section-title--center">Get Review by ID</h2>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <label class="label">Get Review ID:</label>
-            <input type="text" id="Text1" runat="server" />
-            <asp:Button ID="Button2" runat="server" Text="Get Review by ID" Cssclass="btn--lg btn--black font-weight--reguler text-white" />
-            </div>
-            <asp:GridView ID="GridView2" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
-                <Columns>
-                    <asp:BoundField DataField="ReviewID" HeaderText="ReviewID" SortExpression="ReviewID"/>
-                    <asp:BoundField DataField="ProductID" HeaderText="ProductID" SortExpression="ProdcutID"/>
-                    <asp:BoundField DataField="UserName" HeaderText="User Name" SortExpression="UserName"/>
-                    <asp:BoundField DataField="Rating" HeaderText="Rating" SortExpression="Rating"/>
-                    <asp:BoundField DataField="UserReview" HeaderText="UserReview" SortExpression="UserRview"/>
-                </Columns>
-
-                <AlternatingRowStyle CssClass="myAltRowClass" />
-            </asp:GridView>
-            </div>
-            <br />
+            
 
                 <!------------------------------Update Review by ID-------------------------------->
             <div class="container">

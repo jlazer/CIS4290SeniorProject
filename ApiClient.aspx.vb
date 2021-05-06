@@ -51,9 +51,6 @@ Public Class ApiClient
 
     End Sub
 
-
-
-
     Public Async Sub btnProductID_ClickAsync(sender As Object, e As EventArgs) Handles btnProductID.Click
 
         Dim uri As String = "https://localhost:44368/api/product/" & tbProductID.Value
