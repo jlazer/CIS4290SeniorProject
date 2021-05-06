@@ -95,6 +95,15 @@ Partial Public Class Layout
     Protected WithEvents lblCustomer As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''linkBtnAdminPanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents linkBtnAdminPanel As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''SqlDSMainCategory control.
     '''</summary>
     '''<remarks>

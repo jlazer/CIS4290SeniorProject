@@ -32,7 +32,35 @@ Public Class ProductDetail
             End If
         End If
     End Sub
+    Private Async Sub btnCreateReview_ClickAsync(sender As Object, e As EventArgs) Handles btnCreateReview.Click
+        Dim productReview As New Review
 
+        productReview.ProductID = CInt(Request.QueryString("ProductID"))
+        productReview.UserName = tbUserName.Value
+        productReview.Rating = CInt(tbRating.Value.Trim)
+        productReview.UserReview = tbUserReview.Value
+
+        Dim json As String = JsonConvert.SerializeObject(productReview, Formatting.Indented)
+
+        httpClient.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Bearer", getToken())
+        Dim uri As String = "https://localhost:44368/api/review/"
+        Dim response = Await httpClient.PostAsync(uri, New StringContent(json, Encoding.UTF8, "application/json"))
+        btnProductReviews_ClickAsync(btnProductReviews, EventArgs.Empty)
+    End Sub
+
+    Public Async Sub btnProductReviews_ClickAsync(sender As Object, e As EventArgs) Handles btnProductReviews.Click
+
+        Dim uri As String = "https://localhost:44368/api/review/" & CInt(Request.QueryString("ProductID"))
+        Dim task = Await httpClient.GetAsync(uri)
+        Dim jsonString As String = Await task.Content.ReadAsStringAsync()
+        If task.IsSuccessStatusCode Then
+            System.Diagnostics.Debug.WriteLine("Success status code")
+            Dim table As DataTable = JsonConvert.DeserializeObject(Of DataTable)(jsonString)
+            gvProductReviews.DataSource = table
+            gvProductReviews.DataBind()
+        End If
+
+    End Sub
     Private Sub btnAddtoCart_Click(sender As Object, e As EventArgs) Handles btnAddtoCart.Click
         '*** get CartNo
         Dim strCartNo As String
@@ -99,5 +127,15 @@ Public Class ProductDetail
         End If
         'Return the first length bytes
         Return guidResult.Substring(0, length)
+    End Function
+    Function getToken() As String
+        Dim jwtToken As String
+        If (Request.Cookies("JwtCookie") IsNot Nothing) Then
+            If (Request.Cookies("JwtCookie")("JWT") IsNot Nothing) Then
+                jwtToken = Request.Cookies("JwtCookie")("JWT")
+                Return jwtToken
+            End If
+        End If
+        Return Nothing
     End Function
 End Class

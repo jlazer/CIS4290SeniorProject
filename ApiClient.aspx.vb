@@ -10,6 +10,11 @@ Imports Newtonsoft.Json
 Public Class ApiClient
     Inherits System.Web.UI.Page
 
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+
+    End Sub
+
     Dim httpClient As New HttpClient
     Dim strCartID As String
     Private Async Sub btnAllProducts_ClickAsync(sender As Object, e As EventArgs) Handles btnAllProducts.Click
@@ -23,11 +28,6 @@ Public Class ApiClient
         End If
 
     End Sub
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
-
-    End Sub
-
     Private Async Sub btnAllReviews_ClickAsync(sender As Object, e As EventArgs) Handles btnAllReviews.Click
         Dim uri As String = "https://localhost:44368/api/review"
         Dim task = Await httpClient.GetAsync(uri)
@@ -39,6 +39,20 @@ Public Class ApiClient
         End If
 
     End Sub
+    Private Async Sub btnAllCategory_ClickAsync(sender As Object, e As EventArgs) Handles btnAllCategory.Click
+        Dim uri As String = "https://localhost:44368/api/category"
+        Dim task = Await httpClient.GetAsync(uri)
+        Dim jsonString = Await task.Content.ReadAsStringAsync()
+        If task.IsSuccessStatusCode Then
+            Dim table As DataTable = JsonConvert.DeserializeObject(Of DataTable)(jsonString)
+            gvAllCategory.DataSource = table
+            gvAllCategory.DataBind()
+        End If
+
+    End Sub
+
+
+
 
     Public Async Sub btnProductID_ClickAsync(sender As Object, e As EventArgs) Handles btnProductID.Click
 
@@ -65,6 +79,19 @@ Public Class ApiClient
         End If
 
     End Sub
+    Public Async Sub btnCategoryID_ClickAsync(sender As Object, e As EventArgs) Handles btnCategoryID.Click
+
+        Dim uri As String = "https://localhost:44368/api/category/" & tbCategoryID.Value
+        Dim task = Await httpClient.GetAsync(uri)
+        Dim jsonString As String = Await task.Content.ReadAsStringAsync()
+        If task.IsSuccessStatusCode Then
+            Dim table As DataTable = JsonConvert.DeserializeObject(Of DataTable)(jsonString)
+            gvCategoryID.DataSource = table
+            gvCategoryID.DataBind()
+        End If
+
+    End Sub
+
 
     Private Async Sub btnCreateProduct_ClickAsync(sender As Object, e As EventArgs) Handles btnCreateProduct.Click
         'I think i need to create a product class. make a product object on page load and place the textbox values into that object then serialize it to json
@@ -100,20 +127,59 @@ Public Class ApiClient
         btnAllProducts_ClickAsync(btnAllProducts, EventArgs.Empty)
     End Sub
 
+    Private Async Sub btnUpdateProduct_ClickAsync(sender As Object, e As EventArgs) Handles btnUpdateProduct.Click
+        Dim updatedProduct As New Product
+
+        updatedProduct.ProductNo = tbProductNo.Value
+        updatedProduct.ProductName = tbProductName.Value
+        updatedProduct.ProductDesc = tbProductDescription.Value
+        updatedProduct.UnitPrice = Decimal.Parse(tbPrice.Value.Trim)
+        updatedProduct.MainCategoryID = CInt(tbMainCategoryID.Value.Trim)
+        updatedProduct.SubCategoryID = CInt(tbSubCategoryID.Value.Trim)
+        updatedProduct.MainCategoryName = tbMainCategoryName.Value
+        updatedProduct.SubCategoryName = tbSubCategoryName.Value
+        updatedProduct.ProductCaption = tbProductCaption.Value
+        updatedProduct.ProductRating = CInt(tbProductRating.Value.Trim)
+        updatedProduct.FeaturedProduct = CInt(tbFeatured.Value.Trim)
+        updatedProduct.ProductInfo = tbProductInfo.Value
+
+        Dim json As String = JsonConvert.SerializeObject(updatedProduct, Formatting.Indented)
+
+        httpClient.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Bearer", getToken())
+        Dim uri As String = "https://localhost:44368/api/product/" & tbUpdateProductID.Value
+        Dim response = Await httpClient.PutAsync(uri, New StringContent(json, Encoding.UTF8, "application/json"))
+        btnAllProducts_ClickAsync(btnAllProducts, EventArgs.Empty)
+        btnProductID_ClickAsync(btnProductID, EventArgs.Empty)
+    End Sub
+
+    'Private Async Sub btnCreateCategory_ClickAsync(sender As Object, e As EventArgs) Handles btnCreateCategory.Click
+    '    Dim createdCategory As New Category
+
+    '    createdCategory.CategoryID = tbCreateCategoryId.Value
+    '    createdCategory.CategoryName = tbCategoryName.Value
+    '    createdCategory.Parent = CInt(tbParent.Value.Trim)
+
+    '    System.Diagnostics.Debug.WriteLine(createdCategory.CategoryID.GetType)
+    '    System.Diagnostics.Debug.WriteLine(createdCategory.CategoryName.GetType)
+    '    System.Diagnostics.Debug.WriteLine(createdCategory.Parent.GetType)
+    ' getting null reference error on line below
+    '    Dim json As String = JsonConvert.SerializeObject(createdCategory, Formatting.Indented)
+
+    '    httpClient.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Bearer", getToken())
+    '    Dim uri As String = "https://localhost:44368/api/category/"
+    '    Dim response = Await httpClient.PostAsync(uri, New StringContent(json, Encoding.UTF8, "application/json"))
+    '    btnAllCategory_ClickAsync(btnAllCategory, EventArgs.Empty)
+    'End Sub
+
     Private Async Sub btnCreateReview_ClickAsync(sender As Object, e As EventArgs) Handles btnCreateReview.Click
         Dim createdReview As New Review
 
-        'createdReview.ReviewID = CInt(tbReviewID.Value.Trim)
         createdReview.ProductID = CInt(tbRProductId.Value.Trim)
         createdReview.UserName = tbUserName.Value
         createdReview.Rating = CInt(tbRating.Value.Trim)
         createdReview.UserReview = tbUserReview.Value
 
         Dim json As String = JsonConvert.SerializeObject(createdReview, Formatting.Indented)
-
-
-        'Dim myJson As String = ("{'ProductID': '" & tbRProductId.Value & "', 'UserName': '" & tbUserName.Value & "', 'Rating': '" _
-        '& tbRating.Value & "', 'UserReview': '" & tbUserReview.Value & "'}")
 
         httpClient.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Bearer", getToken())
         Dim uri As String = "https://localhost:44368/api/review/"
@@ -122,12 +188,21 @@ Public Class ApiClient
     End Sub
 
     Private Async Sub btnUpdateReview_ClickAsync(sender As Object, e As EventArgs) Handles btnUpdateReview.Click
-        Dim myJson As String = ("{'ProductID': '" & tbRProductId.Value & "', 'UserName': '" & tbUserName.Value & "', 'Rating': '" _
-            & tbRating.Value & "', 'UserReview': '" & tbUserReview.Value & "'}")
+        Dim updatedReview As New Review
+
+        updatedReview.ProductID = CInt(tbRProductId.Value.Trim)
+        updatedReview.UserName = tbUserName.Value
+        updatedReview.Rating = CInt(tbRating.Value.Trim)
+        updatedReview.UserReview = tbUserReview.Value
+
+        Dim json As String = JsonConvert.SerializeObject(updatedReview, Formatting.Indented)
+
+        'Dim myJson As String = ("{'ProductID': '" & tbRProductId.Value & "', 'UserName': '" & tbUserName.Value & "', 'Rating': '" _
+        '& tbRating.Value & "', 'UserReview': '" & tbUserReview.Value & "'}")
 
         httpClient.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Bearer", getToken())
         Dim uri As String = "https://localhost:44368/api/review/" & tbUpdateReviewID.Value
-        Dim response = Await httpClient.PutAsync(uri, New StringContent(myJson, Encoding.UTF8, "application/json"))
+        Dim response = Await httpClient.PutAsync(uri, New StringContent(json, Encoding.UTF8, "application/json"))
         btnAllReviews_ClickAsync(btnAllReviews, EventArgs.Empty)
         btnReviewID_ClickAsync(btnReviewID, EventArgs.Empty)
     End Sub

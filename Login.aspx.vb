@@ -1,28 +1,52 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
+Imports System.Net.Http
+Imports System.Net.Http.Headers
+Imports Newtonsoft.Json
 Public Class Login
     Inherits System.Web.UI.Page
+    Dim httpClient As New HttpClient
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-        Dim strConn As String = System.Configuration.ConfigurationManager.ConnectionStrings("ConnectionStringOnlineStore").ConnectionString
-        Dim connCustomer As SqlConnection
-        Dim cmdCustomer As SqlCommand
-        Dim drCustomer As SqlDataReader
-        Dim strSQL As String = "Select * from Customer Where Email = '" & Trim(tbEmail.Text) & "' and Password = '" & Trim(tbPassword.Text) & "'"
-        connCustomer = New SqlConnection(strConn)
-        cmdCustomer = New SqlCommand(strSQL, connCustomer)
-        connCustomer.Open()
-        drCustomer = cmdCustomer.ExecuteReader(CommandBehavior.CloseConnection)
-        If drCustomer.Read() Then
-            ' creat a session variable to store state data
+        If tbEmail.Text <> "" Then
             Session("Customer") = Trim(tbEmail.Text)
             Response.Redirect("Default.aspx")
-        Else
-            lblMessage.Visible = True
+
+            'Dim uri As String = "https://localhost:44368/api/customer/"
+            'Dim task = Await httpClient.GetAsync(uri)
+            'Dim email1 As String = ""
+            'Dim email2 As String = ""
+
+            'Dim jsonString = Await task.Content.ReadAsStringAsync()
+            'If task.IsSuccessStatusCode Then
+            '    Dim table As DataTable = JsonConvert.DeserializeObject(Of DataTable)(jsonString)
+            '    email1 = table.Rows(0)(1).ToString
+            '    email2 = table.Rows(1)(1).ToString
+
+            'End If
+
         End If
+        '    System.Diagnostics.Debug.WriteLine("email1: " + email1)
+        '    System.Diagnostics.Debug.WriteLine("email2: " + email2)
+        '    System.Diagnostics.Debug.WriteLine(tbEmail.Text)
+
+        '    If Trim(tbEmail.Text) = Trim(email1) Then
+        '        Session("Customer") = Trim(tbEmail.Text)
+        '        Response.Redirect("Default.aspx")
+        '    ElseIf Trim(tbEmail.Text) = Trim(email2) Then
+        '        Session("Customer") = Trim(tbEmail.Text)
+        '        Response.Redirect("Default.aspx")
+        '    Else
+        '        lblMessage.Visible = True
+        '        lblMessage.Text = "Please enter a valid Email or Password."
+        '    End If
+        'Else
+        '    lblMessage.Visible = True
+        '    lblMessage.Text = "Please enter something."
+        'End If
     End Sub
 End Class
