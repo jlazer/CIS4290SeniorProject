@@ -140,6 +140,7 @@
         <div class="alignCenter">
         <asp:Button ID="btnAllProducts" Cssclass="btn--lg btn--black font-weight--reguler text-white" runat="server" Text="Products" />
         <asp:Button ID="btnAllReviews" Cssclass="btn--lg btn--black font-weight--reguler text-white" runat="server" Text="Reviews" />
+        <asp:Button ID="btnAllCategory" Cssclass="btn--lg btn--black font-weight--reguler text-white" runat="server" Text="Categories" />
         </div>
 
         <!---------------------------------Table Display--------------------------------------->
@@ -168,22 +169,38 @@
             </Columns>
             <AlternatingRowStyle CssClass="myAltRowClass" />
         </asp:GridView>
+        <br />
+        <asp:GridView ID="gvAllCategory" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
+                <Columns>
+                    <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id"/>
+                    <asp:BoundField DataField="CategoryID" HeaderText="CategoryID" SortExpression="CategoryID"/>
+                    <asp:BoundField DataField="CategoryName" HeaderText="Category Name" SortExpression="CategoryName"/>
+                    <asp:BoundField DataField="Parent" HeaderText="Parent" SortExpression="Parent"/>
+                </Columns>
+                <AlternatingRowStyle CssClass="myAltRowClass" />
+            </asp:GridView>
         </div>
         </div>
-        <!---------------------------------------------------------------------------------------->
 
         <br />
         <br />
 
         <!------------------------------Get Product by ID----------------------------------->
-         <div class="container">
-            <div class="row">
+         <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title text-center mb-20">
                             <h2 class="section-title--one section-title--center">Search by ID</h2>
                     </div>
                 </div>
-            </div>
+         </div>
+
+        <nav class="offcanvas-navigation">
+                <ul>
+                    <li class="has-children, alignCenter"><span class="menu-expand"><i></i></span>
+                        <a class="btn--lg btn--black font-weight--reguler text-white" href="#">Hide/Unhide</a>
+                        <ul class="sub-menu" style="display: none;">
+
+        <div class="container">
         <div class="column, alignCenter">
             <label class="label">Product ID:</label>&emsp;&emsp;
             <input type="text" id="tbProductID" runat="server" />&emsp;
@@ -200,7 +217,6 @@
                 <asp:BoundField DataField="FeaturedProduct" HeaderText="Featured" SortExpression="Featured" />
                 <asp:BoundField DataField="MainCategoryID" HeaderText="Main Category ID" SortExpression="MainCategoryID" />
             </Columns>
-
         <AlternatingRowStyle CssClass="myAltRowClass" />
         </asp:GridView>
         </div>
@@ -225,6 +241,26 @@
 
             <AlternatingRowStyle CssClass="myAltRowClass" />
         </asp:GridView>
+        <!---------------------------------------------------------------------------------------->
+        
+        <br />
+        
+        <!---------------------------------Get Category by ID---------------------------------->
+        <div class="column, alignCenter">
+            <label class="label">Category ID:</label>&emsp;&emsp;
+            <input type="text" id="tbCategoryID" runat="server" />&emsp;
+            <asp:Button ID="btnCategoryID" runat="server" Text="Get Category" Cssclass="btn--lg btn--black font-weight--reguler text-white"/>
+        </div>
+            <asp:GridView ID="gvCategoryID" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
+                <Columns>
+                    <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id"/>
+                    <asp:BoundField DataField="CategoryID" HeaderText="CategoryID" SortExpression="CategoryID"/>
+                    <asp:BoundField DataField="CategoryName" HeaderText="Category Name" SortExpression="CategoryName"/>
+                    <asp:BoundField DataField="Parent" HeaderText="Parent" SortExpression="Parent"/>
+                </Columns>
+                <AlternatingRowStyle CssClass="myAltRowClass" />
+            </asp:GridView>
+        </nav>
         <!---------------------------------------------------------------------------------------->
 
         <br />
@@ -353,24 +389,34 @@
                 <br />
                 <br />
 
-             <div class="alignCenter">
+            <div class="alignCenter">
             <!------------------Get Review by ID----------------------------------------------------->
-            <label>Get Review ID:</label>
+            <div class="container">
+                 <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center mb-20">
+                            <h2 class="section-title--one section-title--center">Get Review by ID</h2>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <label class="label">Get Review ID:</label>
             <input type="text" id="Text1" runat="server" />
             <asp:Button ID="Button2" runat="server" Text="Get Review by ID" Cssclass="btn--lg btn--black font-weight--reguler text-white" />
-        </div>
-        <asp:GridView ID="GridView2" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
-            <Columns>
-                <asp:BoundField DataField="ReviewID" HeaderText="ReviewID" SortExpression="ReviewID"/>
-                <asp:BoundField DataField="ProductID" HeaderText="ProductID" SortExpression="ProdcutID"/>
-                <asp:BoundField DataField="UserName" HeaderText="User Name" SortExpression="UserName"/>
-                <asp:BoundField DataField="Rating" HeaderText="Rating" SortExpression="Rating"/>
-                <asp:BoundField DataField="UserReview" HeaderText="UserReview" SortExpression="UserRview"/>
-            </Columns>
+            </div>
+            <asp:GridView ID="GridView2" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
+                <Columns>
+                    <asp:BoundField DataField="ReviewID" HeaderText="ReviewID" SortExpression="ReviewID"/>
+                    <asp:BoundField DataField="ProductID" HeaderText="ProductID" SortExpression="ProdcutID"/>
+                    <asp:BoundField DataField="UserName" HeaderText="User Name" SortExpression="UserName"/>
+                    <asp:BoundField DataField="Rating" HeaderText="Rating" SortExpression="Rating"/>
+                    <asp:BoundField DataField="UserReview" HeaderText="UserReview" SortExpression="UserRview"/>
+                </Columns>
 
-            <AlternatingRowStyle CssClass="myAltRowClass" />
-        </asp:GridView>
-
+                <AlternatingRowStyle CssClass="myAltRowClass" />
+            </asp:GridView>
+            </div>
+            <br />
 
                 <!------------------------------Update Review by ID-------------------------------->
             <div class="container">
@@ -387,14 +433,13 @@
                     <input type="text" id="tbUpdateReviewID" runat="server" />&emsp;
                     <asp:Button ID="btnUpdateReview" runat="server" Text="Update" Cssclass="btn--lg btn--black font-weight--reguler text-white"/>
                 </div>
-        </div> 
+            </div> 
         <!---------------------------------------------------------------------------------------------------->
 
         <br />
         <br />
 
         <!---------------------------------Delete Product or Review by ID---------------------------------->
-       <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title text-center mb-20">
@@ -402,6 +447,14 @@
                     </div>
                 </div>
             </div>
+
+        <nav class="offcanvas-navigation">
+            <ul>
+                <li class="has-children, alignCenter"><span class="menu-expand"><i></i></span>
+                    <a class="btn--lg btn--black font-weight--reguler text-white" href="#">Hide/Unhide</a>
+                    <ul class="sub-menu" style="display: none;">
+
+        <div class="container">
         <!---------------------------------Delete Product by ID------------------------------------------>
         <div class="column, alignCenter">
             <label class="label">Product ID:</label>&emsp;&emsp;
@@ -419,6 +472,7 @@
             <asp:Button ID="btnDeleteReviewID" runat="server" Text="Delete" Cssclass="btn--lg btn--black font-weight--reguler text-white"/>
         </div>
         </div>
+        </nav>
         <!---------------------------------------------------------------------------------------->
 
         <br />

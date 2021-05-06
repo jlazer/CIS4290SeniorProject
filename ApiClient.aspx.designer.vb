@@ -95,6 +95,15 @@ Partial Public Class ApiClient
     Protected WithEvents btnAllReviews As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''btnAllCategory control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnAllCategory As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''gvAllProducts control.
     '''</summary>
     '''<remarks>
@@ -111,6 +120,15 @@ Partial Public Class ApiClient
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gvAllReviews As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''gvAllCategory control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents gvAllCategory As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
     '''tbProductID control.
@@ -165,6 +183,33 @@ Partial Public Class ApiClient
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gvReviewID As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''tbCategoryID control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbCategoryID As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''btnCategoryID control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCategoryID As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''gvCategoryID control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents gvCategoryID As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
     '''tbProductNo control.
