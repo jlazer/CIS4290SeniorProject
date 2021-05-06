@@ -46,6 +46,7 @@ Public Class ProductDetail
             strCartNo = CookieBack.Value
         End If
 
+        ' maybe needs edit
         ' set up ado objects and variables
         Dim strConnectionString As String = System.Configuration.ConfigurationManager.ConnectionStrings("ConnectionStringOnlineStore").ConnectionString
         Dim conn As New SqlConnection(strConnectionString)
@@ -53,6 +54,7 @@ Public Class ProductDetail
         Dim strSQLStatement As String
         Dim cmdSQL As SqlCommand
 
+        ' needs edit
         ' get product price
         strSQLStatement = "Select * From Product Where ProductNo = '" & lblProductNo.Text & "'"
         cmdSQL = New SqlCommand(strSQLStatement, conn)

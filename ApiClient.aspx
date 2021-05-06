@@ -78,14 +78,31 @@
         }
     </style>
 
-        <!---------------------------------------Header------------------------------------------>
-        <h1 class="alignCenter" style="font-size: 80px">Admin Access Panel for WebAPI</h1>
-        <!---------------------------------------------------------------------------------------->
+<div class="breadcrumb-area">
+    <div class="container-fluid container-fluid--cp-100">
+        <div class="row">
+            <div class="col-12">
+                <div class="row breadcrumb_box  align-items-center">
+                    <div class="col-lg-6 col-md-6 col-sm-6 text-center text-sm-left">
+                        <h3 class="breadcrumb-title">
+                            <asp:Label ID="lblProductList" runat="server" Text="Admin Panel"></asp:Label>
+                        </h3>
+                    </div>
+                <div class="col-lg-6  col-md-6 col-sm-6">
+                            <!-- breadcrumb-list start -->
+                    <ul class="breadcrumb-list text-center text-sm-right">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Admin Panel</li>
+                    </ul>
+                            <!-- breadcrumb-list end -->
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+</div><br />  
 
-        <br />
-        <br />
-
-        <!-------------------------------API Login Credentials------------------------------------>
+        <!-- API Login Credentials
         <h2 class="alignCenter">Login for access:</h2>
         <br />
       <div>
@@ -106,16 +123,27 @@
         <a class="alignCenter" style="font-weight: bold" href="Register.aspx">Register for API Access</a>
             <asp:Label ID="lblLoginResult" runat="server" Font-Bold="true" Text="" Visible="false" CssClass="alignCenter"></asp:Label>
             <asp:Button ID="btnApiLogout" runat="server" Text="Logout" Visible="false"/>
-        <!---------------------------------------------------------------------------------------->
+        -->
 
         <br />
         <br />
 
-        <!---------------------------------Get All Products--------------------------------------->
-        <h2 class="alignCenter">Get all products or reviews!</h2>
-        <br />
+        <!---------------------------------Get All Products/Reviews--------------------------------------->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center mb-20">
+                            <h2 class="section-title--one section-title--center">View all Products/Reviews</h2>
+                    </div>
+                </div>
+            </div>
         <div class="alignCenter">
-        <asp:Button ID="btnAllProducts" class="button" runat="server" Text="All Products" />
+        <asp:Button ID="btnAllProducts" Cssclass="btn--lg btn--black font-weight--reguler text-white" runat="server" Text="Products" />
+        <asp:Button ID="btnAllReviews" Cssclass="btn--lg btn--black font-weight--reguler text-white" runat="server" Text="Reviews" />
+        </div>
+
+        <!---------------------------------Table Display--------------------------------------->
+        <div class="alignCenter">
         <asp:GridView ID="gvAllProducts" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
             <Columns>
                 <asp:BoundField DataField="ProductID" HeaderText="ProductID" SortExpression="ProductID"/>
@@ -129,12 +157,7 @@
             </Columns>
             <AlternatingRowStyle CssClass="myAltRowClass" />
         </asp:GridView>
-        </div>
         <br />
-
-        <!-----------------------------Get All Reviews----------------------------------->
-        <div class="alignCenter">
-        <asp:Button ID="btnAllReviews" class="button" runat="server" Text="All Reviews" />
         <asp:GridView ID="gvAllReviews" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
             <Columns>
                 <asp:BoundField DataField="ReviewID" HeaderText="ReviewID" SortExpression="ReviewID"/>
@@ -146,18 +169,25 @@
             <AlternatingRowStyle CssClass="myAltRowClass" />
         </asp:GridView>
         </div>
+        </div>
         <!---------------------------------------------------------------------------------------->
 
         <br />
         <br />
 
         <!------------------------------Get Product by ID----------------------------------->
-        <h2 class="alignCenter">Get product or review by ID:</h2>
-        <br />
+         <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center mb-20">
+                            <h2 class="section-title--one section-title--center">Search by ID</h2>
+                    </div>
+                </div>
+            </div>
         <div class="column, alignCenter">
             <label class="label">Product ID:</label>&emsp;&emsp;
             <input type="text" id="tbProductID" runat="server" />&emsp;
-            <asp:Button ID="btnProductID" runat="server" Text="Get Product" class="button"/>
+            <asp:Button ID="btnProductID" runat="server" Text="Get Product" Cssclass="btn--lg btn--black font-weight--reguler text-white"/>
         </div>
         <asp:GridView ID="gvProductID" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
             <Columns>
@@ -173,6 +203,7 @@
 
         <AlternatingRowStyle CssClass="myAltRowClass" />
         </asp:GridView>
+        </div>
         <!---------------------------------------------------------------------------------------->
 
         <br />
@@ -181,7 +212,7 @@
         <div class="column, alignCenter">
             <label class="label">Review ID:</label>&emsp;&emsp;
             <input type="text" id="tbReviewID" runat="server" />&emsp;
-            <asp:Button ID="btnReviewID" runat="server" Text="Get Review" class="button"/>
+            <asp:Button ID="btnReviewID" runat="server" Text="Get Review" Cssclass="btn--lg btn--black font-weight--reguler text-white"/>
         </div>
         <asp:GridView ID="gvReviewID" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
             <Columns>
@@ -200,8 +231,14 @@
         <br />
 
         <!------------------------------------Create a Product------------------------------------->
-        <h2 class="alignCenter">Create a product</h2>
-        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center mb-20">
+                            <h2 class="section-title--one section-title--center">Create a Product</h2>
+                    </div>
+                </div>
+            </div>
         <div>
             <div class="column">
 
@@ -249,8 +286,9 @@
                 <br />
                 <br />
                 <div class="alignCenter">
-                <asp:Button ID="btnCreateProduct" class="button" runat="server" Text="Create a Product"/>
+                <asp:Button ID="btnCreateProduct" Cssclass="btn--lg btn--black font-weight--reguler text-white" runat="server" Text="Create a Product"/>
                 </div>
+            </div>
             </div>
                 <!---------------------------------------------------------------------------------------->
 
@@ -258,13 +296,18 @@
                 <br />
 
             <!----------------------------Update Product by ID-------------------------->
-            <div>
-                <h2 class="alignCenter">Update product by ID</h2>
-                <br />
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center mb-20">
+                            <h2 class="section-title--one section-title--center">Update Product by ID</h2>
+                    </div>
+                </div>
+            </div>
                 <div class="column, alignCenter">
                     <label for="tbUpdateProductID" class="label">Product ID:</label>&emsp;&emsp;
                     <input type="text" id="tbUpdateProductID" runat="server" />&emsp;
-                    <asp:Button ID="btnUpdateProduct" runat="server" Text="Update" class="button"/>
+                    <asp:Button ID="btnUpdateProduct" runat="server" Text="Update" Cssclass="btn--lg btn--black font-weight--reguler text-white"/>
                 </div>
             </div>
             <!---------------------------------------------------------------------------------------->
@@ -274,8 +317,14 @@
         <br />
 
         <!-----------------------------------Create a review-------------------------------->
-        <h2 class="alignCenter">Create a review</h2>
-        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center mb-20">
+                            <h2 class="section-title--one section-title--center">Create a Review</h2>
+                    </div>
+                </div>
+            </div>
          <div>
             <div class="column">
                 <!---------------------Add and Update Review Inputs-------------------------->
@@ -295,9 +344,10 @@
                 <br />
                 <br />
                 <div class="alignCenter">
-                <asp:Button ID="btnCreateReview" class="button" runat="server" Text="Add a Review"/>
+                <asp:Button ID="btnCreateReview" Cssclass="btn--lg btn--black font-weight--reguler text-white" runat="server" Text="Add a Review"/>
                 </div>
             </div>
+             </div>
                 <!---------------------------------------------------------------------------------------->
 
                 <br />
@@ -307,7 +357,7 @@
             <!------------------Get Review by ID----------------------------------------------------->
             <label>Get Review ID:</label>
             <input type="text" id="Text1" runat="server" />
-            <asp:Button ID="Button2" runat="server" Text="Get Review by ID" />
+            <asp:Button ID="Button2" runat="server" Text="Get Review by ID" Cssclass="btn--lg btn--black font-weight--reguler text-white" />
         </div>
         <asp:GridView ID="GridView2" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
             <Columns>
@@ -323,12 +373,19 @@
 
 
                 <!------------------------------Update Review by ID-------------------------------->
-                <h2 class="alignCenter">Update review by ID</h2>
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center mb-20">
+                            <h2 class="section-title--one section-title--center">Update Review by ID</h2>
+                    </div>
+                </div>
+            </div>
                 <br />
                 <div class="column, alignCenter">
                     <label for="tbUpdateReviewID" class="label">Update Review ID:</label>&emsp;&emsp;
                     <input type="text" id="tbUpdateReviewID" runat="server" />&emsp;
-                    <asp:Button ID="btnUpdateReview" runat="server" Text="Update" class="button"/>
+                    <asp:Button ID="btnUpdateReview" runat="server" Text="Update" Cssclass="btn--lg btn--black font-weight--reguler text-white"/>
                 </div>
         </div> 
         <!---------------------------------------------------------------------------------------------------->
@@ -337,13 +394,19 @@
         <br />
 
         <!---------------------------------Delete Product or Review by ID---------------------------------->
-        <h2 class="alignCenter">Delete a product or review by ID</h2>
-        <br />
+       <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center mb-20">
+                            <h2 class="section-title--one section-title--center">Delete by ID</h2>
+                    </div>
+                </div>
+            </div>
         <!---------------------------------Delete Product by ID------------------------------------------>
         <div class="column, alignCenter">
             <label class="label">Product ID:</label>&emsp;&emsp;
             <input type="text" id="tbDeleteProductID" runat="server" />&emsp;
-            <asp:Button ID="btnDeleteProductID" runat="server" Text="Delete" class="button"/>
+            <asp:Button ID="btnDeleteProductID" runat="server" Text="Delete" Cssclass="btn--lg btn--black font-weight--reguler text-white"/>
         </div>
         <!-------------------------------------------------------------------------------------------->
 
@@ -353,7 +416,8 @@
         <div class="column, alignCenter">
             <label class="label">Review ID:</label>&emsp;&emsp;
             <input type="text" id="tbDeleteReviewID" runat="server" />&emsp;
-            <asp:Button ID="btnDeleteReviewID" runat="server" Text="Delete" class="button"/>
+            <asp:Button ID="btnDeleteReviewID" runat="server" Text="Delete" Cssclass="btn--lg btn--black font-weight--reguler text-white"/>
+        </div>
         </div>
         <!---------------------------------------------------------------------------------------->
 

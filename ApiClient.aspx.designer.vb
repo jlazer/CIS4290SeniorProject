@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class ApiClient
 
     '''<summary>
+    '''lblProductList control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblProductList As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''loginDiv control.
     '''</summary>
     '''<remarks>
@@ -77,15 +86,6 @@ Partial Public Class ApiClient
     Protected WithEvents btnAllProducts As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''gvAllProducts control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents gvAllProducts As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
     '''btnAllReviews control.
     '''</summary>
     '''<remarks>
@@ -93,6 +93,15 @@ Partial Public Class ApiClient
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnAllReviews As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''gvAllProducts control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents gvAllProducts As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
     '''gvAllReviews control.
