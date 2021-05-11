@@ -133,7 +133,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title text-center mb-20">
-                            <h2 class="section-title--one section-title--center">View all Products/Reviews</h2>
+                            <h2 class="section-title--one section-title--center">View All</h2>
                     </div>
                 </div>
             </div>
@@ -145,6 +145,7 @@
 
         <!---------------------------------Table Display--------------------------------------->
         <div class="alignCenter">
+        <nav class="offcanvas-navigation">
         <asp:GridView ID="gvAllProducts" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
             <Columns>
                 <asp:BoundField DataField="ProductID" HeaderText="ProductID" SortExpression="ProductID"/>
@@ -206,6 +207,7 @@
             <input type="text" id="tbProductID" runat="server" />&emsp;
             <asp:Button ID="btnProductID" runat="server" Text="Get Product" Cssclass="btn--lg btn--black font-weight--reguler text-white"/>
         </div>
+
         <asp:GridView ID="gvProductID" CssClass="gvDesign" runat="server" HorizontalAlign="Center" autogeneratecolumns="False">
             <Columns>
                 <asp:BoundField DataField="ProductID" HeaderText="ProductID" SortExpression="DateField" />
@@ -266,6 +268,34 @@
 
         <br />
         <br />
+
+                <div>
+        <!------------------------------------Create a Category------------------------------------->
+        <div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center mb-20">
+                            <h2 class="section-title--one section-title--center">Create a Category</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+               
+                <label for="tbCreateCategoryId" class="label">CategoryID:</label>
+                <input type="text" id="tbCreateCategoryId" runat="server" />
+                <label for="tbCategoryName" class="label">CategoryName:</label>
+                <input type="text" id="tbCategoryName" runat="server" />
+                <label for="tbParent" class="label">Parent:</label>
+                <input type="text" id="tbParent" runat="server" />
+               
+                
+                <br />
+                <br />
+                <div class="alignCenter">
+                <asp:Button ID="btnCreateCategory" class="btn--lg btn--black font-weight--reguler text-white" runat="server" Text="Create a Category"/>
+                </div>
+            </div>
+        </div>
 
         <!------------------------------------Create a Product------------------------------------->
         <div class="container">

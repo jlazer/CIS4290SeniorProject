@@ -16,6 +16,9 @@ Public Class ProductDetail
             Dim uri As String = "https://localhost:44368/api/product/" & CInt(Request.QueryString("ProductID"))
             Dim task = Await httpClient.GetAsync(uri)
             Dim jsonString = Await task.Content.ReadAsStringAsync()
+            Dim url As String = "https://localhost:44368/api/review/" & CInt(Request.QueryString("ProductID"))
+            Dim task2 = Await httpClient.GetAsync(url)
+            Dim jsonString2 As String = Await task2.Content.ReadAsStringAsync()
             If task.IsSuccessStatusCode Then
                 Dim table As DataTable = JsonConvert.DeserializeObject(Of DataTable)(jsonString)
                 lblProductNo.Text = table.Rows(0)(1).ToString
@@ -29,37 +32,15 @@ Public Class ProductDetail
                 productSmall1.ImageUrl = "images/product-detail/" + Trim(table.Rows(0)(1).ToString) + "Small1.jpg"
                 productSmall2.ImageUrl = "images/product-detail/" + Trim(table.Rows(0)(1).ToString) + "Small2.jpg"
                 lblPrice.Text = table.Rows(0)(4).ToString
+
+                System.Diagnostics.Debug.WriteLine("Success status code")
+                Dim table2 As DataTable = JsonConvert.DeserializeObject(Of DataTable)(jsonString2)
+                rpReview.DataSource = table2
+                rpReview.DataBind()
             End If
+
+
         End If
-    End Sub
-    Private Async Sub btnCreateReview_ClickAsync(sender As Object, e As EventArgs) Handles btnCreateReview.Click
-        Dim productReview As New Review
-
-        productReview.ProductID = CInt(Request.QueryString("ProductID"))
-        productReview.UserName = tbUserName.Value
-        productReview.Rating = CInt(tbRating.Value.Trim)
-        productReview.UserReview = tbUserReview.Value
-
-        Dim json As String = JsonConvert.SerializeObject(productReview, Formatting.Indented)
-
-        httpClient.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Bearer", getToken())
-        Dim uri As String = "https://localhost:44368/api/review/"
-        Dim response = Await httpClient.PostAsync(uri, New StringContent(json, Encoding.UTF8, "application/json"))
-        btnProductReviews_ClickAsync(btnProductReviews, EventArgs.Empty)
-    End Sub
-
-    Public Async Sub btnProductReviews_ClickAsync(sender As Object, e As EventArgs) Handles btnProductReviews.Click
-
-        Dim uri As String = "https://localhost:44368/api/review/" & CInt(Request.QueryString("ProductID"))
-        Dim task = Await httpClient.GetAsync(uri)
-        Dim jsonString As String = Await task.Content.ReadAsStringAsync()
-        If task.IsSuccessStatusCode Then
-            System.Diagnostics.Debug.WriteLine("Success status code")
-            Dim table As DataTable = JsonConvert.DeserializeObject(Of DataTable)(jsonString)
-            gvProductReviews.DataSource = table
-            gvProductReviews.DataBind()
-        End If
-
     End Sub
     Private Sub btnAddtoCart_Click(sender As Object, e As EventArgs) Handles btnAddtoCart.Click
         '*** get CartNo
@@ -138,4 +119,19 @@ Public Class ProductDetail
         End If
         Return Nothing
     End Function
+
+    Private Async Sub btnCreateReview_Click(sender As Object, e As EventArgs) Handles btnCreateReview.Click
+        Dim productReview As New Review
+
+        productReview.ProductID = CInt(Request.QueryString("ProductID"))
+        productReview.UserName = tbUserName.Value
+        productReview.Rating = CInt(tbRating.Value.Trim)
+        productReview.UserReview = tbUserReview.Value
+
+        Dim json As String = JsonConvert.SerializeObject(productReview, Formatting.Indented)
+
+        httpClient.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Bearer", getToken())
+        Dim uri As String = "https://localhost:44368/api/review/"
+        Dim response = Await httpClient.PostAsync(uri, New StringContent(json, Encoding.UTF8, "application/json"))
+    End Sub
 End Class

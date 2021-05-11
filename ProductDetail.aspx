@@ -130,7 +130,7 @@
                                 <div class="quickview-cart-box">
                                     <div class="quickview-quality">
                                         <div class="cart-plus-minus">
-                                            <asp:TextBox ID="tbQuantity" runat="server" CssClass="cart-plus-minus-box" Text="0"></asp:TextBox>
+                                            <asp:TextBox ID="tbQuantity" runat="server" CssClass="cart-plus-minus-box" Text="1"></asp:TextBox>
                                             <asp:RangeValidator ID="rvQuantity" runat="server" Type="Integer" MinimumValue="1" MaximumValue="50" ControlToValidate="tbQuantity" ErrorMessage="Please enter a whole number from 1-50." Display="Dynamic">Please enter a whole number from 1-50.</asp:RangeValidator>
                                             <!-- <input class="cart-plus-minus-box" type="text" name="qtybutton" value="0"> -->
                                         </div>
@@ -163,25 +163,43 @@
                     <div class="col-12">
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-12">
                         <div class="product-details-tab section-space--pt_90">
                             <ul role="tablist" class=" nav">
                                 <li class="active" role="presentation">
-                                    <a data-toggle="tab" role="tab" href="#description" class="active">Description</a>
+                                    <a data-toggle="tab" role="tab" href="#description" class="active">Reviews</a>
                                 </li>
-                                
                                 <li role="presentation">
-                                    <a data-toggle="tab" role="tab" href="#reviews">Reviews</a>
+                                    <a data-toggle="tab" role="tab" href="#sheet">Create a Review</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-12">
-                        
+                        <div class="product_details_tab_content tab-content mt-30">
                             <!-- Start Single Content -->
-                            <div class="product_tab_content tab-pane" id="reviews" role="tabpanel">
-                                <br />
+                            <div class="product_tab_content tab-pane active" id="description" role="tabpanel">
+                            <asp:Repeater ID="rpReview" runat="server">
+                                <ItemTemplate>
+                                     <div class="product-details-wrap">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-7 order-md-1 order-2">
+                                                <div class="details mt-30">
+                                                    <h5 class="mb-10"> <%# Trim(Eval("userName"))%> </h5>
+                                                    <p><%# Trim(Eval("userReview"))%></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </ItemTemplate>
+                            </asp:Repeater>
+                            </div>
+                            <!-- End Single Content -->
+                            <!-- Start Single Content -->
+                            <div class="product_tab_content tab-pane" id="sheet" role="tabpanel">
+                                
                                 <h2 class="alignCenter">Create a review</h2>
                                 <br />
                                      <div>
@@ -202,27 +220,11 @@
                                             <div class="alignCenter">
                                             <asp:Button ID="btnCreateReview" class="button" runat="server" Text="Add a Review"/>
                                             </div>
-                                        </div>
-
-                                <br />
-                                <!-- Start RAting Area -->
-                                <asp:Button ID="btnProductReviews" class="button" runat="server" Text="Product Reviews" />
-                                <asp:GridView ID="gvProductReviews" runat="server">
-                                    <Columns>
-                                        <asp:BoundField DataField="ReviewID" HeaderText="ReviewID" SortExpression="ReviewID"/>
-                                        <asp:BoundField DataField="ProductID" HeaderText="ProductID" SortExpression="ProdcutID"/>
-                                        <asp:BoundField DataField="UserName" HeaderText="User Name" SortExpression="UserName"/>
-                                        <asp:BoundField DataField="Rating" HeaderText="Rating" SortExpression="Rating"/>
-                                        <asp:BoundField DataField="UserReview" HeaderText="UserReview" SortExpression="UserRview"/>
-                                    </Columns>
-                                <AlternatingRowStyle CssClass="myAltRowClass" />
-                                </asp:GridView>
-                                <br />
-                                
                             </div>
+                            <!-- End Single Content -->
+                            <!-- Start Single Content -->
                             <!-- End Single Content -->
                         </div>
                     </div>
                 </div>
-                <br />
 </asp:Content>

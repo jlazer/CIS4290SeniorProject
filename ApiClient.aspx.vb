@@ -149,24 +149,24 @@ Public Class ApiClient
         btnProductID_ClickAsync(btnProductID, EventArgs.Empty)
     End Sub
 
-    'Private Async Sub btnCreateCategory_ClickAsync(sender As Object, e As EventArgs) Handles btnCreateCategory.Click
-    '    Dim createdCategory As New Category
+    Private Async Sub btnCreateCategory_ClickAsync(sender As Object, e As EventArgs) Handles btnCreateCategory.Click
+        Dim createdCategory As New Category
 
-    '    createdCategory.CategoryID = tbCreateCategoryId.Value
-    '    createdCategory.CategoryName = tbCategoryName.Value
-    '    createdCategory.Parent = CInt(tbParent.Value.Trim)
+        createdCategory.CategoryID = tbCreateCategoryId.Value
+        createdCategory.CategoryName = tbCategoryName.Value
+        createdCategory.Parent = CInt(tbParent.Value.Trim)
 
-    '    System.Diagnostics.Debug.WriteLine(createdCategory.CategoryID.GetType)
-    '    System.Diagnostics.Debug.WriteLine(createdCategory.CategoryName.GetType)
-    '    System.Diagnostics.Debug.WriteLine(createdCategory.Parent.GetType)
-    ' getting null reference error on line below
-    '    Dim json As String = JsonConvert.SerializeObject(createdCategory, Formatting.Indented)
+        System.Diagnostics.Debug.WriteLine(createdCategory.CategoryID.GetType)
+        System.Diagnostics.Debug.WriteLine(createdCategory.CategoryName.GetType)
+        System.Diagnostics.Debug.WriteLine(createdCategory.Parent.GetType)
+        ' getting null reference error on line below
+        Dim json As String = JsonConvert.SerializeObject(createdCategory, Formatting.Indented)
 
-    '    httpClient.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Bearer", getToken())
-    '    Dim uri As String = "https://localhost:44368/api/category/"
-    '    Dim response = Await httpClient.PostAsync(uri, New StringContent(json, Encoding.UTF8, "application/json"))
-    '    btnAllCategory_ClickAsync(btnAllCategory, EventArgs.Empty)
-    'End Sub
+        httpClient.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Bearer", getToken())
+        Dim uri As String = "https://localhost:44368/api/category/"
+        Dim response = Await httpClient.PostAsync(uri, New StringContent(json, Encoding.UTF8, "application/json"))
+        btnAllCategory_ClickAsync(btnAllCategory, EventArgs.Empty)
+    End Sub
 
     Private Async Sub btnCreateReview_ClickAsync(sender As Object, e As EventArgs) Handles btnCreateReview.Click
         Dim createdReview As New Review
@@ -220,22 +220,22 @@ Public Class ApiClient
         btnProductID_ClickAsync(btnProductID, EventArgs.Empty)
     End Sub
 
-    'Private Async Sub btnImportAllReviews_ClickAsync(sender As Object, e As EventArgs) Handles btnImportAllReviews.Click
-    '    Dim uri As String = "https://localhost:44368/api/review"
-    '    Dim task = Await httpClient.GetAsync(uri)
-    '    Dim jsonString = Await task.Content.ReadAsStringAsync()
+    ' Private Async Sub btnImportAllReviews_ClickAsync(sender As Object, e As EventArgs) Handles btnImportAllReviews.Click
+    ' Dim uri As String = "https://localhost:44368/api/review"
+    ' Dim task = Await httpClient.GetAsync(uri)
+    ' Dim jsonString = Await task.Content.ReadAsStringAsync()
 
-    '    Dim sqlDr As SqlDataReader
-    '    Dim strSQLStatement As String
-    '    Dim cmdSQL As SqlCommand
-    '    Dim strConnectionString As String = System.Configuration.ConfigurationManager.ConnectionStrings("ConnectionStringOnlineStore").ConnectionString
-    '    Dim conn As New SqlConnection(strConnectionString)
-    '    conn.Open()
-    '    strSQLStatement = "DECLARE @json NVARCHAR(max) SET @json = N'" & jsonString & "'; INSERT INTO Review  SELECT * FROM OPENJSON(@json) WITH (productID int, userName varchar(30), rating int, userReview varchar(300))"
-    '    cmdSQL = New SqlCommand(strSQLStatement, conn)
-    '    sqlDr = cmdSQL.ExecuteReader()
-    '    conn.Close()
-    'End Sub
+    ' Dim sqlDr As SqlDataReader
+    ' Dim strSQLStatement As String
+    ' Dim cmdSQL As SqlCommand
+    ' Dim strConnectionString As String = System.Configuration.ConfigurationManager.ConnectionStrings("ConnectionStringOnlineStore").ConnectionString
+    ' Dim conn As New SqlConnection(strConnectionString)
+    '   conn.Open()
+    ' strSQLStatement = "DECLARE @json NVARCHAR(max) SET @json = N'" & jsonString & "'; INSERT INTO Review  SELECT * FROM OPENJSON(@json) WITH (productID int, userName varchar(30), rating int, userReview varchar(300))"
+    ' cmdSQL = New SqlCommand(strSQLStatement, conn)
+    ' sqlDr = cmdSQL.ExecuteReader()
+    ' conn.Close()
+    ' End Sub
     Function getToken() As String
         Dim jwtToken As String
         If (Request.Cookies("JwtCookie") IsNot Nothing) Then

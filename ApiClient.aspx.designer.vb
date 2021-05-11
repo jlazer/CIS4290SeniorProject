@@ -212,6 +212,42 @@ Partial Public Class ApiClient
     Protected WithEvents gvCategoryID As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
+    '''tbCreateCategoryId control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbCreateCategoryId As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''tbCategoryName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbCategoryName As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''tbParent control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbParent As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''btnCreateCategory control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCreateCategory As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''tbProductNo control.
     '''</summary>
     '''<remarks>
