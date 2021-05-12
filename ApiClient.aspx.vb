@@ -91,7 +91,7 @@ Public Class ApiClient
 
 
     Private Async Sub btnCreateProduct_ClickAsync(sender As Object, e As EventArgs) Handles btnCreateProduct.Click
-        'I think i need to create a product class. make a product object on page load and place the textbox values into that object then serialize it to json
+        'need to create a product class. make a product object on page load and place the textbox values into that object then serialize it to json
         'Dim createdProduct As Product
         Dim createdProduct As New Product
 
@@ -149,24 +149,24 @@ Public Class ApiClient
         btnProductID_ClickAsync(btnProductID, EventArgs.Empty)
     End Sub
 
-    Private Async Sub btnCreateCategory_ClickAsync(sender As Object, e As EventArgs) Handles btnCreateCategory.Click
-        Dim createdCategory As New Category
+    'Private Async Sub btnCreateCategory_ClickAsync(sender As Object, e As EventArgs) Handles btnCreateCategory.Click
+    '    Dim createdCategory As New Category
 
-        createdCategory.CategoryID = tbCreateCategoryId.Value
-        createdCategory.CategoryName = tbCategoryName.Value
-        createdCategory.Parent = CInt(tbParent.Value.Trim)
+    '    createdCategory.CategoryID = tbCreateCategoryId.Value
+    '    createdCategory.CategoryName = tbCategoryName.Value
+    '    createdCategory.Parent = CInt(tbParent.Value.Trim)
 
-        System.Diagnostics.Debug.WriteLine(createdCategory.CategoryID.GetType)
-        System.Diagnostics.Debug.WriteLine(createdCategory.CategoryName.GetType)
-        System.Diagnostics.Debug.WriteLine(createdCategory.Parent.GetType)
-        ' getting null reference error on line below
-        Dim json As String = JsonConvert.SerializeObject(createdCategory, Formatting.Indented)
+    '    System.Diagnostics.Debug.WriteLine(createdCategory.CategoryID.GetType)
+    '    System.Diagnostics.Debug.WriteLine(createdCategory.CategoryName.GetType)
+    '    System.Diagnostics.Debug.WriteLine(createdCategory.Parent.GetType)
+    '    ' getting null reference error on line below
+    '    Dim json As String = JsonConvert.SerializeObject(createdCategory, Formatting.Indented)
 
-        httpClient.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Bearer", getToken())
-        Dim uri As String = "https://localhost:44368/api/category/"
-        Dim response = Await httpClient.PostAsync(uri, New StringContent(json, Encoding.UTF8, "application/json"))
-        btnAllCategory_ClickAsync(btnAllCategory, EventArgs.Empty)
-    End Sub
+    '    httpClient.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Bearer", getToken())
+    '    Dim uri As String = "https://localhost:44368/api/category/"
+    '    Dim response = Await httpClient.PostAsync(uri, New StringContent(json, Encoding.UTF8, "application/json"))
+    '    btnAllCategory_ClickAsync(btnAllCategory, EventArgs.Empty)
+    'End Sub
 
     Private Async Sub btnCreateReview_ClickAsync(sender As Object, e As EventArgs) Handles btnCreateReview.Click
         Dim createdReview As New Review

@@ -271,7 +271,7 @@
 
                 <div>
         <!------------------------------------Create a Category------------------------------------->
-        <div>
+        <%--<div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title text-center mb-20">
@@ -295,7 +295,7 @@
                 <asp:Button ID="btnCreateCategory" class="btn--lg btn--black font-weight--reguler text-white" runat="server" Text="Create a Category"/>
                 </div>
             </div>
-        </div>
+        </div>--%>
 
         <!------------------------------------Create a Product------------------------------------->
         <div class="container">
