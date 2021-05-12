@@ -200,25 +200,32 @@
                             <!-- Start Single Content -->
                             <div class="product_tab_content tab-pane" id="sheet" role="tabpanel">
                                 
-                                <h2 class="alignCenter">Create a review</h2>
-                                <br />
+                                     <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="section-title text-center mb-20">
+                                                    <h2 class="section-title--one section-title--center"><asp:Label ID="lblRTitle" runat="server" Text="Log in to leave a Review!"></asp:Label></h2>
+                                                </div>
+                                             </div>
+                                     </div>
                                      <div>
                                         <div class="column">
                                             <!---------------------Add and Update Review Inputs-------------------------->
+
+
                 
-                                            <label for="tbUserName" class="label">User Name:</label>
+                                            <asp:Label ID="lblUserName" runat="server" Text="User Name:" CssClass="label"></asp:Label>
                                             <input type="text" id="tbUserName" runat="server" />
 
-                                            <label for="tbRating" class="label">Rating:</label>
+                                            <asp:Label ID="lblRRating" runat="server" Text="Rating:" CssClass="label"></asp:Label>
                                             <input type="text" id="tbRating" runat="server" />
 
-                                            <label for="tbUserReview" class="label">User Review:</label>
+                                            <asp:Label ID="lblUserReview" runat="server" Text="Review:" CssClass="label"></asp:Label>
                                             <input type="text" id="tbUserReview" runat="server" />
 
                                             <br />
                                             <br />
                                             <div class="alignCenter">
-                                            <asp:Button ID="btnCreateReview" class="button" runat="server" Text="Add a Review"/>
+                                            <asp:Button ID="btnCreateReview" class="btn--lg btn--black font-weight--reguler text-white" runat="server" Text="Add a Review"/>
                                             </div>
                             </div>
                             <!-- End Single Content -->

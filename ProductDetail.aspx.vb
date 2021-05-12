@@ -11,12 +11,31 @@ Public Class ProductDetail
     Dim httpClient As New HttpClient
 
     Protected Async Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Session("Customer") <> "" Or Session("Admin") <> "" Then
+            lblRTitle.Text = "Leave a Review!"
+            tbUserName.Visible = True
+            tbRating.Visible = True
+            tbUserReview.Visible = True
+            btnCreateReview.Visible = True
+            lblUserName.Visible = True
+            lblRRating.Visible = True
+            lblUserReview.Visible = True
+        Else
+            lblRTitle.Text = "Log in to leave a Review!"
+            tbUserName.Visible = False
+            tbRating.Visible = False
+            tbUserReview.Visible = False
+            btnCreateReview.Visible = False
+            lblUserName.Visible = False
+            lblRRating.Visible = False
+            lblUserReview.Visible = False
+        End If
         If Request.QueryString("ProductID") <> "" Then
 
             Dim uri As String = "https://localhost:44368/api/product/" & CInt(Request.QueryString("ProductID"))
             Dim task = Await httpClient.GetAsync(uri)
             Dim jsonString = Await task.Content.ReadAsStringAsync()
-            Dim url As String = "https://localhost:44368/api/review/" & CInt(Request.QueryString("ProductID"))
+            Dim url As String = "https://localhost:44368/api/review/productId?productId=" & CInt(Request.QueryString("ProductID"))
             Dim task2 = Await httpClient.GetAsync(url)
             Dim jsonString2 As String = Await task2.Content.ReadAsStringAsync()
             If task.IsSuccessStatusCode Then

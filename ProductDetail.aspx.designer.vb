@@ -158,6 +158,24 @@ Partial Public Class ProductDetail
     Protected WithEvents rpReview As Global.System.Web.UI.WebControls.Repeater
 
     '''<summary>
+    '''lblRTitle control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblRTitle As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblUserName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblUserName As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''tbUserName control.
     '''</summary>
     '''<remarks>
@@ -167,6 +185,15 @@ Partial Public Class ProductDetail
     Protected WithEvents tbUserName As Global.System.Web.UI.HtmlControls.HtmlInputText
 
     '''<summary>
+    '''lblRRating control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblRRating As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''tbRating control.
     '''</summary>
     '''<remarks>
@@ -174,6 +201,15 @@ Partial Public Class ProductDetail
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents tbRating As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''lblUserReview control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblUserReview As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''tbUserReview control.
