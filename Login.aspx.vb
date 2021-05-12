@@ -3,6 +3,7 @@ Imports System.Data.SqlClient
 Imports System.Net.Http
 Imports System.Net.Http.Headers
 Imports Newtonsoft.Json
+
 Public Class Login
     Inherits System.Web.UI.Page
     Dim httpClient As New HttpClient
@@ -11,10 +12,35 @@ Public Class Login
 
     End Sub
 
-    Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+    Private Async Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         If tbEmail.Text <> "" Then
-            Session("Customer") = Trim(tbEmail.Text)
-            Response.Redirect("Default.aspx")
+            ' Session("Customer") = Trim(tbEmail.Text)
+            ' Response.Redirect("Default.aspx")
+
+            Dim uri As String = "https://localhost:44368/api/customer/Email?Email=" & tbEmail.Text
+            Dim task = Await httpClient.GetAsync(uri)
+            Dim jsonString = Await task.Content.ReadAsStringAsync()
+            If task.IsSuccessStatusCode Then
+                Dim table As DataTable = JsonConvert.DeserializeObject(Of DataTable)(jsonString)
+                If table.Rows.Count > 0 Then
+                    If Trim(tbEmail.Text) = table.Rows(0)(1).ToString And Trim(tbPassword.Text) = table.Rows(0)(2).ToString Then
+                        If table.Rows(0)(3).ToString = 0 Then
+                            Session("Customer") = Trim(tbEmail.Text)
+                            Response.Redirect("Default.aspx", False)
+                        Else
+                            Session("Admin") = Trim(tbEmail.Text)
+                            Response.Redirect("Default.aspx", False)
+                        End If
+                    Else
+                        lblMessage.Visible = True
+                    End If
+                ElseIf table.Rows.Count = 0 Then
+                        lblMessage.Visible = True
+                End If
+            Else
+                lblMessage.Visible = True
+            End If
+
 
             'Dim uri As String = "https://localhost:44368/api/customer/"
             'Dim task = Await httpClient.GetAsync(uri)

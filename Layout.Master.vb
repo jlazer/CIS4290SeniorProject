@@ -14,9 +14,14 @@ Public Class Layout
         If Session("Customer") <> "" Then
             hlLogin.Visible = False
             hlLogout.Visible = True
+            lblCustomer.Text = Session("Customer")
+            lblCustomer.Visible = True
+        ElseIf Session("Admin") <> "" Then
+            hlLogin.Visible = False
+            hlLogout.Visible = True
             linkBtnAdminPanel.Visible = True
             linkBtnAdminPanel.Text = "Admin Panel"
-            lblCustomer.Text = Session("Customer")
+            lblCustomer.Text = Session("Admin")
             lblCustomer.Visible = True
         Else
             hlLogin.Visible = True

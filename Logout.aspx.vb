@@ -4,6 +4,8 @@
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Session("Customer") <> "" Then
             lblAccount.Text = Session("Customer")
+        ElseIf Session("Admin") <> "" Then
+            lblAccount.Text = Session("Admin")
         End If
     End Sub
 
