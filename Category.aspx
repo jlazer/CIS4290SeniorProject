@@ -98,7 +98,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-content">
-                                                <h6 class="prodect-title"><a href="product-details.html"><%# Trim(Eval("ProductName"))%></a></h6>
+                                                <h6 class="prodect-title"><a href="ProductDetail.aspx?ProductID=<%# Eval("ProductID")%>"><%# Trim(Eval("ProductName"))%></a></h6>
                                                 <div class="prodect-price">
 
                                                     <span class="new-price">$<%# GetWholesalePrice(Trim(Eval("UnitPrice")))%></span>
@@ -129,7 +129,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-content">
-                                                <h6 class="prodect-title"><a href="product-details.html"><%# Trim(Eval("ProductName"))%></a></h6>
+                                                <h6 class="prodect-title"><a href="ProductDetail.aspx?ProductID=<%# Eval("ProductID")%>"><%# Trim(Eval("ProductName"))%></a></h6>
                                                 <div class="prodect-price">
                                                     <span class="new-price">$<%# Trim(Eval("UnitPrice"))%></span>
                                                 </div>
