@@ -140,17 +140,21 @@ Public Class ProductDetail
     End Function
 
     Private Async Sub btnCreateReview_Click(sender As Object, e As EventArgs) Handles btnCreateReview.Click
+        ' Create an object of Class review
         Dim productReview As New Review
 
+        ' Place the product id from the url into the proper field abd the text box values from the review form
         productReview.ProductID = CInt(Request.QueryString("ProductID"))
         productReview.UserName = tbUserName.Value
         productReview.Rating = CInt(tbRating.Value.Trim)
         productReview.UserReview = tbUserReview.Value
 
+        ' serialize the review object into a string 
         Dim json As String = JsonConvert.SerializeObject(productReview, Formatting.Indented)
 
         httpClient.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Bearer", getToken())
         Dim uri As String = "https://localhost:44368/api/review/"
+        ' send the json string with the serialized object as a post request to the above url
         Dim response = Await httpClient.PostAsync(uri, New StringContent(json, Encoding.UTF8, "application/json"))
     End Sub
 End Class

@@ -52,9 +52,11 @@ Public Class ApiClient
     End Sub
 
     Public Async Sub btnProductID_ClickAsync(sender As Object, e As EventArgs) Handles btnProductID.Click
-
+        'use the below url with product id appended
         Dim uri As String = "https://localhost:44368/api/product/" & tbProductID.Value
+        ' create a get method based on the url above
         Dim task = Await httpClient.GetAsync(uri)
+        ' send the url to the api
         Dim jsonString As String = Await task.Content.ReadAsStringAsync()
         If task.IsSuccessStatusCode Then
             Dim table As DataTable = JsonConvert.DeserializeObject(Of DataTable)(jsonString)
