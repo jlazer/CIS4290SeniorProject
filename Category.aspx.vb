@@ -33,7 +33,7 @@ Public Class Category
 
             lblMainCategoryName.Text = Request.QueryString("MainCategoryName")
             ' assign selectcommand to SqlDSProductList for the featured products of the Main Category
-            SqlDSProductList.SelectCommand = "Select * From Product Where productfeature = 1 and maincategoryid = " & CInt(Request.QueryString("MainCategoryID"))
+            ' SqlDSProductList.SelectCommand = "Select * From Product Where productfeature = 1 and maincategoryid = " & CInt(Request.QueryString("MainCategoryID"))
             Dim url As String = "https://localhost:44368/api/product/Featured?MainCategory=" & CInt(Request.QueryString("MainCategoryID"))
             Dim featuredtask = Await httpClient.GetAsync(url)
             Dim featuredjsonString = Await featuredtask.Content.ReadAsStringAsync()
